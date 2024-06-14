@@ -4,7 +4,7 @@ government_rank = 1
 primary_culture = wati
 religion = dreamtime
 technology_group = aboriginal_tech
-fixed_capital = 4953
+capital = 4953
 
 1444.11.11 = {
 	monarch = {
