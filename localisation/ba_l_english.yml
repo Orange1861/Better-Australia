@@ -97,6 +97,10 @@
  isolated_aboriginal_development:0 "Isolated Aboriginal Development"
  desc_isolated_aboriginal_development:0 "The Aboriginals of Australia were some of the most isolated groups in the world, which prevented influences that encouraged the development of other societies."
  
+ aboriginal_native:0 "Aboriginal Native"
+ aboriginal_native_band_reform:0 "Band Leadership"
+ aboriginal_native_band_reform_desc:0 "Under our culture, Gamilaraay, we organized themselves into bands, which allows us to integrate our population with our army more effectively. This means that our armies are more effective at recovering from battles."
+ 
  WIR_ideas:0 "Wiradjuri Ideas"
  WIR_ideas_start:0 "Wiradjuri Traditions"
  WIR_ideas_bonus:0 "Wiradjuri Ambition"
