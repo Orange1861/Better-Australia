@@ -1,0 +1,81 @@
+country_event = {
+	id = aus_gold_rush.1
+	title = aus_gold_rush.1t
+	desc = aus_gold_rush.1d
+	picture = TRADE_GOODS_METAL_AND_MINING_EQUIPMENT_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = wurundjeri_gold
+		}
+	mean_time_to_happen = { months = 240 }
+	option = {
+		name = "gold_rush_1"
+		ai_chance = { factor = 100 }
+		set_country_flag = wurundjeri_gold_rush
+		1087 = {
+			add_base_tax = 2
+			add_base_manpower = 1
+			add_province_modifier = {
+				name = aus_gold_rush
+				duration = -1
+				}	
+			}
+		goto = 1087
+		}
+}
+country_event = {
+	id = aus_gold_rush.2
+	title = aus_gold_rush.2t
+	desc = aus_gold_rush.2d
+	picture = TRADE_GOODS_METAL_AND_MINING_EQUIPMENT_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = wurundjeri_gold_rush
+		}
+	mean_time_to_happen = { months = 300 }
+	after = { remove_province_modifier = aus_gold_rush }
+	option = {
+		name = "gold_rush_2"
+		ai_chance { factor = 100 }
+		set_country_flag = wurundjeri_gold_depleted
+		1087 = {
+			add_base_tax = -1
+			add_base_manpower = -1
+			add_permanent_province_modifier = {
+				name = after_gold_rush
+				duration = -1
+				}
+			tooltip = { remove_province_modifier = aus_gold_rush }
+			}
+		goto = 1087
+		}
+}		
+country_event = {
+	id = aus_gold_rush.3
+	title = aus_gold_rush.3t
+	desc = aus_gold_rush.3d
+	picture = TRADE_GOODS_METAL_AND_MINING_EQUIPMENT_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = aus_gold_depleted
+		}
+	mean_time_to_happen = { months = 240 }
+	option = {
+		name = "gold_rush_3"
+		ai_chance { factor = 100 }
+		set_country_flag = return_to_normalcy
+		1087 = {
+			add_permanent_province_modifier = {
+				name = return_of_gold
+				duration = -1
+				}
+			}
+		goto = 1087
+		}
+}		
