@@ -7620,7 +7620,7 @@ pacific = {
 	}
 }
 
-boriginal_australian = {
+aboriginal_australian = {
 	graphical_culture = aboriginalgfx
 	second_graphical_culture = africangfx
 	
