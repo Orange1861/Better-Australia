@@ -1,0 +1,7 @@
+#Native Nations
+
+WIR = "countries/Wiradjuri.txt"
+NGI = "countries/Ngiyampaa.txt"
+NGU = "countries/Nguburinji.txt"
+KKA = "countries/Kalkadoon.txt"
+PIT = "countries/Pitjantjatjara.txt"

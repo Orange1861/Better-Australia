@@ -1,0 +1,14 @@
+#1089 - Wiradjuri
+
+add_core = WIR
+owner = WIR
+controller = WIR
+culture = gamilaraay
+religion = dreamtime
+capital = "Wiradjuri"
+trade_goods = unknown
+hre = no
+base_tax = 3 
+base_production = 3
+base_manpower = 2
+discovered_by = aboriginal_tech

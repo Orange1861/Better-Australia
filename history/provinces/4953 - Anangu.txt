@@ -1,0 +1,21 @@
+#4953 - Anangu
+
+add_core = PIT
+owner = PIT
+controller = PIT
+culture = wati
+religion = dreamtime
+capital = "Uluru"
+hre = no
+trade_goods = salt
+base_manpower = 1
+base_tax = 1
+base_production = 1
+native_size = 3
+native_ferocity = 1
+native_hostileness = 4
+discovered_by = aboriginal_tech
+
+1444.1.1 = {tribal_owner = PIT }
+
+1619.1.10 = { discovered_by = NED } # Frederick de Houtman

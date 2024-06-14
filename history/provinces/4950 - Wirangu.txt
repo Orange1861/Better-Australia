@@ -1,0 +1,16 @@
+#4950 - Wirangu
+
+culture = yura
+religion = dreamtime
+capital = "Wirangu"
+hre = no
+trade_goods = unknown
+base_manpower = 1
+base_tax = 1
+base_production = 1
+native_size = 5
+native_ferocity = 1
+native_hostileness = 4
+discovered_by = aboriginal_tech
+
+1619.1.10 = { discovered_by = NED } # Frederick de Houtman
