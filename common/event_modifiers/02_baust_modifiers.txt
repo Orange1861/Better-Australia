@@ -2,7 +2,7 @@
 
 stone_age_warfare = { 
 	infantry_power = -0.25
+	global_ship_cost = 0.25
+	defensiveness = -0.4
 	morale_damage = 0.2
-	defensiveness = -0.33
-	infantry_cost = -0.1
 }

@@ -1,0 +1,61 @@
+# Australian Stone Age
+
+namespace = orange_aus_events
+
+country_event = {
+	id = orange_aus_events.1
+	title = "orange_aus_events.1.t"
+	desc = "orange_aus_events.1.d"
+	picture = TRADE_GOODS_METALS_AND_MINING_EQUIPENT_eventPicture
+	
+	fire_only_once = yes
+	hidden = yes
+	
+	trigger = {
+		religion = dreamtime
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {	#Gives modifiers
+		name = "orange_aus_events.1.a"	
+		hidden_effect = {
+			every_country = { 
+				limit = {
+					religion = dreamtime
+				}
+				country_event = { 
+					id = orange_aus_events.2
+					days = 2
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = orange_aus_events.2
+	title = "orange_aus_events.2.t"
+	desc = "orange_aus_events.2.d"
+	picture = TRADE_GOODS_METALS_AND_MINING_EQUIPENT_eventPicture
+	
+	trigger = {
+		religion = dreamtime
+	}
+	
+	major = no
+	
+	is_triggered_only = yes
+	
+	option = {	#Gives modifiers
+		name = "orange_aus_events.2.a"	
+		custom_tooltip = orange_aus_events.2
+		add_country_modifier = { 
+			name = stone_age_warfare
+			duration = -1
+		}
+		set_country_flag = aboriginal_stone_age
+	}
+}
