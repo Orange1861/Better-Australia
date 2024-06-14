@@ -19,9 +19,6 @@ WIR_ideas = {
 	wir_taphoglyphs = {
 		war_exhaustion = -0.02
 	}
-	wir_hunter_gather_legacy = {
-		movement_speed = 0.1
-	}
 	wir_possum_skin_coats = {
 		land_attrition = -0.1
 	}
@@ -33,5 +30,9 @@ WIR_ideas = {
 	}
 	wir_tribal_size = {
 		garrison_size = 0.2
+	}
+	wir_hunter_gather_legacy = {
+		movement_speed = 0.05
+		global_supply_limit_modifier = 0.1
 	}
 }
