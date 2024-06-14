@@ -2,7 +2,23 @@
 
 stone_age_warfare = { 
 	infantry_power = -0.25
+	cavalry_power = -0.25
 	global_ship_cost = 0.25
 	defensiveness = -0.5
 	morale_damage = 0.2
+	army_tradition_decay = -0.01
+}
+
+low_aboriginal_population = {
+	global_manpower_modifier = -0.25
+	garrison_size = -0.2
+	land_forcelimit	= -1
+	naval_forcelimit = -2
+	migration_cost = -0.25
+}
+
+isolated_aboriginal_development = {
+	monthly_reform_progress = -0.1
+	relation_with_same_culture_group = -10
+	stability_cost_modifier = -0.1
 }

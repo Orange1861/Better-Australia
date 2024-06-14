@@ -92,3 +92,11 @@
  
  stone_age_warfare:0 "Stone Age Warfare"
  desc_stone_age_warfare:0 "The Aboriginal Peoples still used stone weapons, which are considerably less deadly than most other weapons throughout the world. Combined with norms that reduces casualities, aboriginal warfare is greatly affected by the technology."
+ low_aboriginal_population:0 "Low Aboriginal Population"
+ desc_low_aboriginal_population:0 "Aboriginal Tribes were well known for their low population, even compared to the tribes of the Americas. This hindered their ability to raise large armies."
+ isolated_aboriginal_development:0 "Isolated Aboriginal Development"
+ desc_isolated_aboriginal_development:0 "The Aboriginals of Australia were some of the most isolated groups in the world, which prevented influences that encouraged the development of other societies."
+ 
+ WIR_ideas:0 "Wiradjuri Ideas"
+ WIR_ideas_start:0 "Wiradjuri Traditions"
+ WIR_ideas_bonus:0 "Wiradjuri Ambition"

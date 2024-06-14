@@ -56,6 +56,14 @@ country_event = {
 			name = stone_age_warfare
 			duration = -1
 		}
+		add_country_modifier = { 
+			name = low_aboriginal_population
+			duration = -1
+		}
+		add_country_modifier = { 
+			name = isolated_aboriginal_development
+			duration = -1
+		}
 		set_country_flag = aboriginal_stone_age
 	}
 }

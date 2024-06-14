@@ -1,0 +1,37 @@
+WIR_ideas = {
+	start = {
+		siege_ability = 0.20
+		land_forcelimit_modifier = 0.25
+	}
+
+	bonus = {
+		leader_siege = 1
+	}
+	
+	trigger = {
+		tag = WIR
+	}
+	free = yes
+	
+	wir_large_population = {
+		global_manpower_modifier = 0.2
+	}
+	wir_taphoglyphs = {
+		war_exhaustion = -0.02
+	}
+	wir_hunter_gather_legacy = {
+		movement_speed = 0.1
+	}
+	wir_possum_skin_coats = {
+		land_attrition = -0.1
+	}
+	wir_population_expansion = {
+		global_colonial_growth = 10
+	}
+	wir_internal_population_mass = {
+		culture_conversion_cost = -0.1
+	}
+	wir_tribal_size = {
+		garrison_size = 0.2
+	}
+}
