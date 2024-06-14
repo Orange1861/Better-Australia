@@ -1,0 +1,13 @@
+l_english:
+ aus_gold_rush.1t:0 "GOLD RUSH!!!"
+ aus_gold_rush.1d:0 "We were unable to keep our secrets of our new gold deposits, now people from around the world rush in to stike rich. This has its upsides though, now there are more people to tax and more gold entering our economy; however, §Rthis will not last forever....§" 
+ gold_rush_1:0 "Reap The Benefits While They Last"
+ aus_gold_rush:0 "The Australian Gold Rush"
+ aus_gold_rush.2t:0 "Gold Depleted"
+ aus_gold_rush.2d:0 "Sadly, the gold miners havn't found any new gold veins in the past few months and have started to leave our land. It will take time to find new veins and build new mines for them."
+ gold_rush_2:0 "We Knew This Day Would Come"
+ after_gold_rush:0 "Aftereffects of the Gold Rush"
+ aus_gold_rush.3t:0 "Striking Gold Again"
+ aus_gold_rush.3d:0 "We have spent years trying to find new veins and have finally struck gold yet again. Sadly, it doesn't look like this new vein is has big as previous ones."
+ gold_rush_3:0 "Atleast We Found Some"
+ return_of_gold:0 "New Gold Mines"
