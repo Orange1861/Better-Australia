@@ -1774,7 +1774,7 @@ sunraysia = {
 	4958 4959 4960 4961
 }
 
-darwin_area = { #4 (Tiwi and stuff)
+top_end_area = { #4 (Tiwi and stuff)
 	2728 4846 4942 4954
 }
 

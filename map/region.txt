@@ -864,7 +864,7 @@ australia_region = {
 		daring_downs_area
 		north_queensland_area
 		arnhem_area
-		darwin_area
+		top_end_area
 		sunraysia
 		nullarbor_area
 		outback_area

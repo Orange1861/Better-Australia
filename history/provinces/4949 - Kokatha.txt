@@ -1,5 +1,8 @@
 #4949 - Kokatha
 
+add_core = KOA
+owner = KOA
+controller = KOA
 culture = wati
 religion = dreamtime
 capital = "Kokatha"
@@ -8,9 +11,6 @@ trade_goods = unknown
 base_manpower = 1
 base_tax = 1
 base_production = 1
-native_size = 3
-native_ferocity = 1
-native_hostileness = 4
 discovered_by = aboriginal_tech
 
 1619.1.10 = { discovered_by = NED } # Frederick de Houtman

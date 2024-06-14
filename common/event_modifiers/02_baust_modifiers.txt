@@ -1,0 +1,8 @@
+#Australian Tribe Modifer
+
+stone_age_warfare = { 
+	infantry_power = -0.25
+	morale_damage = 0.2
+	defensiveness = -0.33
+	infantry_cost = -0.1
+}
