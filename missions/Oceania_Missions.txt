@@ -990,11 +990,11 @@ australia_oceanic_influence = {
 		}
 	effect = {
 		set_country_flag = oceanic_empire_yes
+		custom_tooltip = forming_oceanic_empire_tt
 		add_power_projection = {
 			type = mission_rewards_power_projection
 			amount = 25
 			}
-		custom_tooltip = forming_oceanic_empire_tt
 		every_owned_province = {
 				limit = {
 					region = oceanea_region
