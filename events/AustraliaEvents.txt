@@ -6,11 +6,9 @@ country_event = {
 	desc = aus_gold_rush.1d
 	picture = TRADE_GOODS_METAL_AND_MINING_EQUIPMENT_eventPicture
 
-	is_triggered_only = yes
-
 	trigger = {
 		has_country_flag = wurundjeri_gold
-		}
+	}
 	mean_time_to_happen = { months = 240 }
 	option = {
 		name = "gold_rush_1"
@@ -32,8 +30,6 @@ country_event = {
 	title = aus_gold_rush.2t
 	desc = aus_gold_rush.2d
 	picture = TRADE_GOODS_METAL_AND_MINING_EQUIPMENT_eventPicture
-
-	is_triggered_only = yes
 
 	trigger = {
 		has_country_flag = wurundjeri_gold_rush
@@ -61,8 +57,6 @@ country_event = {
 	title = aus_gold_rush.3t
 	desc = aus_gold_rush.3d
 	picture = TRADE_GOODS_METAL_AND_MINING_EQUIPMENT_eventPicture
-
-	is_triggered_only = yes
 
 	trigger = {
 		has_country_flag = aus_gold_depleted
