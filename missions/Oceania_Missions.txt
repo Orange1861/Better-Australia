@@ -69,14 +69,14 @@ australia_in_search_of_resources = {
 		set_country_flag = in_search_of_new_resources
 		add_country_modifier = {
 			name = harsh_exploration
-			durations = -1
+			duration = -1
 			}
 		custom_tooltip = aus_search_new_res_disc_tt
 		}
 	tooltip = {
 		add_country_modifier = {
 			name = harsh_exploration
-			durations = -1
+			duration = -1
 			}
 		custom_tooltip = aus_search_new_res_disc_tt
 	}
