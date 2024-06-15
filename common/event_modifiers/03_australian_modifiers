@@ -1,0 +1,23 @@
+aus_gold_rush = {
+	local_unrest = 8
+	trade_goods_size = 3
+}
+
+after_gold_rush = {
+	trade_goods_size = -3
+	local_unrest = 5
+}
+
+return_of_gold = {
+	trade_goods_size = 1.5
+	local_unrest = -5
+}
+develope_our_lands = {
+	development_cost = -0.05
+}
+harsh_exploration = {
+	global_colonial_growth = 5
+}
+sula_easy_colony = {
+	local_colonial_growth = 25 
+}
