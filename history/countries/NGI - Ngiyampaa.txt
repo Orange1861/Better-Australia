@@ -6,6 +6,8 @@ religion = dreamtime
 technology_group = aboriginal_tech
 capital = 4960
 
+historical_rival = WIR
+
 1444.11.11 = {
 	monarch = {
 		name = "Native Council"

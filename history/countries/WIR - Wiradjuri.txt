@@ -6,6 +6,7 @@ religion = dreamtime
 technology_group = aboriginal_tech
 capital = 1089
 
+historical_rival = NGI
 
 1444.11.11 = {
 	monarch = {
