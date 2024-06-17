@@ -10,7 +10,7 @@ stone_age_warfare = {
 }
 
 low_aboriginal_population = {
-	global_manpower_modifier = -0.25
+	global_manpower_modifier = -0.2
 	garrison_size = -0.2
 	land_forcelimit	= -1
 	naval_forcelimit = -2
