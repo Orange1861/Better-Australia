@@ -55,7 +55,8 @@ country_decisions = {
 				is_core = ROOT
 			}
 			num_of_owned_provinces_with = {
-				value = 10
+				value = 35
+				is_core = ROOT
 				region = australia_region
 				is_city = yes
 			}
@@ -86,7 +87,7 @@ country_decisions = {
 				}
 				set_government_rank = 2
 			}
-			colonial_australia = {
+			australia_region = {
 				limit = {
 					NOT = { owned_by = ROOT }
 				}
@@ -172,5 +173,555 @@ country_decisions = {
 			factor = 1
 		}
 		ai_importance = 500
+	}
+	core_1242_AP = {
+		color = { 255 83 73 }
+		potential = {
+			has_country_flag = can_core_poly
+			owns = 1242
+			OR = {
+				technology_group = aboriginal_tech
+				technology_group = polynesian_tech
+				}
+			NOT = { owns_core_province = 1242 }
+			}
+		allow = {
+			owns = 1242
+			adm_power = 50
+			1242 = {
+				NOT = { unrest = 10 }
+				}	
+			}
+		effect = {
+			1242 = {
+				add_core = ROOT
+				}
+			add_adm_power = -50
+			}
+	}
+	core_4938_AP = {
+		color = { 255 83 73 }
+		potential = {
+			has_country_flag = can_core_poly
+			owns = 4938
+			OR = {
+				technology_group = aboriginal_tech
+				technology_group = polynesian_tech
+				}
+			NOT = { owns_core_province = 4938 }
+			}
+		allow = {
+			owns = 4938
+			adm_power = 50
+			4938 = {
+				NOT = { unrest = 10 }
+				}	
+			}
+		effect = {
+			4938 = {
+				add_core = ROOT
+				}
+			add_adm_power = -50
+			}
+	}
+	core_1431_AP = {
+		color = { 255 83 73 }
+		potential = {
+			has_country_flag = can_core_poly
+			owns = 1431
+			OR = {
+				technology_group = aboriginal_tech
+				technology_group = polynesian_tech
+				}
+			NOT = { owns_core_province = 1431 }
+			}
+		allow = {
+			owns = 1431
+			adm_power = 50
+			1431 = {
+				NOT = { unrest = 10 }
+				}	
+			}
+		effect = {
+			1431 = {
+				add_core = ROOT
+				}
+			add_adm_power = -50
+			}
+	}
+	core_1243_AP = {
+		color = { 255 83 73 }
+		potential = {
+			has_country_flag = can_core_poly
+			owns = 1243
+			OR = {
+				technology_group = aboriginal_tech
+				technology_group = polynesian_tech
+				}
+			NOT = { owns_core_province = 1243 }
+			}
+		allow = {
+			owns = 1243
+			adm_power = 50
+			1243 = {
+				NOT = { unrest = 10 }
+				}	
+			}
+		effect = {
+			1243 = {
+				add_core = ROOT
+				}
+			add_adm_power = -50
+			}
+	}
+	core_1989_AP = {
+		color = { 255 83 73 }
+		potential = {
+			has_country_flag = can_core_poly
+			owns = 1989
+			OR = {
+				technology_group = aboriginal_tech
+				technology_group = polynesian_tech
+				}
+			NOT = { owns_core_province = 1989 }
+			}
+		allow = {
+			owns = 1989
+			adm_power = 50
+			1989 = {
+				NOT = { unrest = 10 }
+				}	
+			}
+		effect = {
+			1989 = {
+				add_core = ROOT
+				}
+			add_adm_power = -50
+			}
+	}
+	core_1728_AP = {
+		color = { 255 83 73 }
+		potential = {
+			has_country_flag = can_core_poly
+			owns = 1728
+			OR = {
+				technology_group = aboriginal_tech
+				technology_group = polynesian_tech
+				}
+			NOT = { owns_core_province = 1728 }
+			}
+		allow = {
+			owns = 1728
+			adm_power = 50
+			1728 = {
+				NOT = { unrest = 10 }
+				}	
+			}
+		effect = {
+			1728 = {
+				add_core = ROOT
+				}
+			add_adm_power = -50
+			}
+	}
+	core_1244_AP = {
+		color = { 255 83 73 }
+		potential = {
+			has_country_flag = can_core_poly
+			owns = 1244
+			OR = {
+				technology_group = aboriginal_tech
+				technology_group = polynesian_tech
+				}
+			NOT = { owns_core_province = 1244 }
+			}
+		allow = {
+			owns = 1244
+			adm_power = 50
+			1244 = {
+				NOT = { unrest = 10 }
+				}	
+			}
+		effect = {
+			1244 = {
+				add_core = ROOT
+				}
+			add_adm_power = -50
+			}
+	}
+	core_1988_AP = {
+		color = { 255 83 73 }
+		potential = {
+			has_country_flag = can_core_poly
+			owns = 1988
+			OR = {
+				technology_group = aboriginal_tech
+				technology_group = polynesian_tech
+				}
+			NOT = { owns_core_province = 1988 }
+			}
+		allow = {
+			owns = 1988
+			adm_power = 50
+			1988 = {
+				NOT = { unrest = 10 }
+				}	
+			}
+		effect = {
+			1988 = {
+				add_core = ROOT
+				}
+			add_adm_power = -50
+			}
+	}
+	core_1692_AP = {
+		color = { 255 83 73 }
+		potential = {
+			has_country_flag = can_core_poly
+			owns = 1692
+			OR = {
+				technology_group = aboriginal_tech
+				technology_group = polynesian_tech
+				}
+			NOT = { owns_core_province = 1692 }
+			}
+		allow = {
+			owns = 1692
+			adm_power = 50
+			1692 = {
+				NOT = { unrest = 10 }
+				}	
+			}
+		effect = {
+			1692 = {
+				add_core = ROOT
+				}
+			add_adm_power = -50
+			}
+	}
+	core_4936_AP = {
+		color = { 255 83 73 }
+		potential = {
+			has_country_flag = can_core_poly
+			owns = 4936
+			OR = {
+				technology_group = aboriginal_tech
+				technology_group = polynesian_tech
+				}
+			NOT = { owns_core_province = 4936 }
+			}
+		allow = {
+			owns = 4936
+			adm_power = 50
+			4936 = {
+				NOT = { unrest = 10 }
+				}	
+			}
+		effect = {
+			4936 = {
+				add_core = ROOT
+				}
+			add_adm_power = -50
+			}
+	}
+	core_4935_AP = {
+		color = { 255 83 73 }
+		potential = {
+			has_country_flag = can_core_poly
+			owns = 4935
+			OR = {
+				technology_group = aboriginal_tech
+				technology_group = polynesian_tech
+				}
+			NOT = { owns_core_province = 4935 }
+			}
+		allow = {
+			owns = 4935
+			adm_power = 50
+			4935 = {
+				NOT = { unrest = 10 }
+				}	
+			}
+		effect = {
+			4935 = {
+				add_core = ROOT
+				}
+			add_adm_power = -50
+			}
+	}
+	core_4934_AP = {
+		color = { 255 83 73 }
+		potential = {
+			has_country_flag = can_core_poly
+			owns = 4934
+			OR = {
+				technology_group = aboriginal_tech
+				technology_group = polynesian_tech
+				}
+			NOT = { owns_core_province = 4934 }
+			}
+		allow = {
+			owns = 4934
+			adm_power = 50
+			4934 = {
+				NOT = { unrest = 10 }
+				}	
+			}
+		effect = {
+			4934 = {
+				add_core = ROOT
+				}
+			add_adm_power = -50
+			}
+	}
+	core_1240_AP = {
+		color = { 255 83 73 }
+		potential = {
+			has_country_flag = can_core_poly
+			owns = 1240
+			OR = {
+				technology_group = aboriginal_tech
+				technology_group = polynesian_tech
+				}
+			NOT = { owns_core_province = 1240 }
+			}
+		allow = {
+			owns = 1240
+			adm_power = 50
+			1240 = {
+				NOT = { unrest = 10 }
+				}	
+			}
+		effect = {
+			1240 = {
+				add_core = ROOT
+				}
+			add_adm_power = -50
+			}
+	}
+	core_1241_AP = {
+		color = { 255 83 73 }
+		potential = {
+			has_country_flag = can_core_poly
+			owns = 1241
+			OR = {
+				technology_group = aboriginal_tech
+				technology_group = polynesian_tech
+				}
+			NOT = { owns_core_province = 1241 }
+			}
+		allow = {
+			owns = 1241
+			adm_power = 50
+			1241 = {
+				NOT = { unrest = 10 }
+				}	
+			}
+		effect = {
+			1241 = {
+				add_core = ROOT
+				}
+			add_adm_power = -50
+			}
+	}
+	core_1990_AP = {
+		color = { 255 83 73 }
+		potential = {
+			has_country_flag = can_core_poly
+			owns = 1990
+			OR = {
+				technology_group = aboriginal_tech
+				technology_group = polynesian_tech
+				}
+			NOT = { owns_core_province = 1990 }
+			}
+		allow = {
+			owns = 1990
+			adm_power = 50
+			1990 = {
+				NOT = { unrest = 10 }
+				}	
+			}
+		effect = {
+			1990 = {
+				add_core = ROOT
+				}
+			add_adm_power = -50
+			}
+	}
+	core_1991_AP = {
+		color = { 255 83 73 }
+		potential = {
+			has_country_flag = can_core_poly
+			owns = 1991
+			OR = {
+				technology_group = aboriginal_tech
+				technology_group = polynesian_tech
+				}
+			NOT = { owns_core_province = 1991 }
+			}
+		allow = {
+			owns = 1991
+			adm_power = 50
+			1991 = {
+				NOT = { unrest = 10 }
+				}	
+			}
+		effect = {
+			1991 = {
+				add_core = ROOT
+				}
+			add_adm_power = -50
+			}
+	}
+	core_1993_AP = {
+		color = { 255 83 73 }
+		potential = {
+			has_country_flag = can_core_poly
+			owns = 1993
+			OR = {
+				technology_group = aboriginal_tech
+				technology_group = polynesian_tech
+				}
+			NOT = { owns_core_province = 1993 }
+			}
+		allow = {
+			owns = 1993
+			adm_power = 50
+			1993 = {
+				NOT = { unrest = 10 }
+				}	
+			}
+		effect = {
+			1993 = {
+				add_core = ROOT
+				}
+			add_adm_power = -50
+			}
+	}
+	core_1994_AP = {
+		color = { 255 83 73 }
+		potential = {
+			has_country_flag = can_core_poly
+			owns = 1994
+			OR = {
+				technology_group = aboriginal_tech
+				technology_group = polynesian_tech
+				}
+			NOT = { owns_core_province = 1994 }
+			}
+		allow = {
+			owns = 1994
+			adm_power = 50
+			1994 = {
+				NOT = { unrest = 10 }
+				}	
+			}
+		effect = {
+			1994 = {
+				add_core = ROOT
+				}
+			add_adm_power = -50
+			}
+	}
+	core_1992_AP = {
+		color = { 255 83 73 }
+		potential = {
+			has_country_flag = can_core_poly
+			owns = 1992
+			OR = {
+				technology_group = aboriginal_tech
+				technology_group = polynesian_tech
+				}
+			NOT = { owns_core_province = 1992 }
+			}
+		allow = {
+			owns = 1992
+			adm_power = 50
+			1992 = {
+				NOT = { unrest = 10 }
+				}	
+			}
+		effect = {
+			1992 = {
+				add_core = ROOT
+				}
+			add_adm_power = -50
+			}
+	}
+	core_1995_AP = {
+		color = { 255 83 73 }
+		potential = {
+			has_country_flag = can_core_poly
+			owns = 1995
+			OR = {
+				technology_group = aboriginal_tech
+				technology_group = polynesian_tech
+				}
+			NOT = { owns_core_province = 1995 }
+			}
+		allow = {
+			owns = 1995
+			adm_power = 50
+			1995 = {
+				NOT = { unrest = 10 }
+				}	
+			}
+		effect = {
+			1995 = {
+				add_core = ROOT
+				}
+			add_adm_power = -50
+			}
+	}
+	core_1996_AP = {
+		color = { 255 83 73 }
+		potential = {
+			has_country_flag = can_core_poly
+			owns = 1996
+			OR = {
+				technology_group = aboriginal_tech
+				technology_group = polynesian_tech
+				}
+			NOT = { owns_core_province = 1996 }
+			}
+		allow = {
+			owns = 1996
+			adm_power = 50
+			1996 = {
+				NOT = { unrest = 10 }
+				}	
+			}
+		effect = {
+			1996 = {
+				add_core = ROOT
+				}
+			add_adm_power = -50
+			}
+	}
+	core_1235_AP = {
+		color = { 255 83 73 }
+		potential = {
+			has_country_flag = can_core_poly
+			owns = 1235
+			OR = {
+				technology_group = aboriginal_tech
+				technology_group = polynesian_tech
+				}
+			NOT = { owns_core_province = 1235 }
+			}
+		allow = {
+			owns = 1235
+			adm_power = 50
+			1235 = {
+				NOT = { unrest = 10 }
+				}	
+			}
+		effect = {
+			1235 = {
+				add_core = ROOT
+				}
+			add_adm_power = -50
+			}
 	}
 }
