@@ -1,14 +1,11 @@
-oceania_missions_modernization_tag = {
+australia_missions_modernization_tag = {
 	slot = 3
 	generic = no
 	ai = no
 	potential = {
-		OR = {
 			technology_group = aboriginal_tech
-			technology_group = polynesian_tech
-		}
 	}
-	oceania_modernization_tag = {
+	australia_modernization_tag = {
 		icon = mission_have_manufactories
 		position = 1
 		required_missions = { }
@@ -49,7 +46,7 @@ australia_missions_slot_3 = {
 australia_in_search_of_resources = {
 	icon = mission_sw_against_the_desert
 	position = 2
-	required_missions = { oceania_modernization_tag }
+	required_missions = { australia_modernization_tag }
 	provinces_to_highlight = { 
 		region = australia_region
 		}
@@ -73,13 +70,6 @@ australia_in_search_of_resources = {
 			}
 		custom_tooltip = aus_search_new_res_disc_tt
 		}
-	tooltip = {
-		add_country_modifier = {
-			name = harsh_exploration
-			duration = -1
-			}
-		custom_tooltip = aus_search_new_res_disc_tt
-	}
 }
 australia_modernize_ports = {
 	icon = mission_trade_company_region_abroad
@@ -150,10 +140,30 @@ australia_modernize_ports = {
 		custom_tooltip = aus_check_disc_tt
 		}
 	}
+australia_control_the_area = {
+	icon = settle_austrialasia
+	position = 5
+	required_missions = { australia_unite_home_region }
+	trigger = {
+		grown_by_states = 5
+		}
+	effect = {
+		australia_region = {
+			limit = {
+				NOT = { is_permanent_claim = ROOT}
+				}
+			add_permanent_claim = ROOT
+			}
+		add_power_projection = {
+			type = mission_rewards_power_projection
+			amount = 25
+			}
+		}
+	}
 australia_seventh_state = {
 	icon = mission_unite_home_region
 	position = 6
-	required_missions = { oceania_unite_home_region }
+	required_missions = { australia_unite_home_region }
 	provinces_to_highlight = {
 		OR = {
 			area = te_ika_a_maui_hauauru_area
@@ -184,15 +194,9 @@ australia_seventh_state = {
 				add_permanent_claim = ROOT
 				}
 			1243 = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					}
 				add_permanent_claim = ROOT
 				}
 			1989 = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					}
 				add_permanent_claim = ROOT
 				}
 			}
@@ -222,6 +226,7 @@ australia_conquer_fiji = {
 			}
 		}	
 	effect = {
+		set_country_flag = can_core_poly
 		oceanea_region = {
 			limit = {
 				NOT = { is_permanent_claim = ROOT}
@@ -294,15 +299,741 @@ australia_seize_makassar_trade = {
 		}
 	}
 }
+australia_missions_slot1 = {
+	slot = 1
+	generic = no
+	ai = no
+	potential = {
+			technology_group = aboriginal_tech
+	}
+	australia_income_mission = {
+		icon = mission_war_chest
+		position = 6
+		required_missions = { }
+		trigger = { 
+			share_of_starting_income = 1.5 
+		}
+		effect = {
+			add_country_modifier = {
+				name = "growing_economy"
+				duration = 9125 #25 years
+			}
+		}
+	}
+	australia_dominate_home_trade_node = {
+		icon = mission_oceania_dev_capital
+		position = 8
+		required_missions = { australia_income_mission }
+		trigger = {
+			home_trade_node = {
+				trade_share = {
+					country = ROOT
+					share = 75
+				}
+			}
+		}
+		effect = {
+			hidden_effect = {
+				home_trade_node_effect_scope = {
+					random_trade_node_member_province = {
+						limit = {
+							owned_by = ROOT
+						}
+						save_event_target_as = reward_province
+					}
+					random_trade_node_member_province = {
+						limit = {
+							owned_by = ROOT
+							is_capital = yes
+						}
+						save_event_target_as = reward_province
+					}
+					random_trade_node_member_province = {
+						limit = {
+							owned_by = ROOT
+							development = CAPITAL
+							is_capital = no
+						}
+						save_event_target_as = reward_province
+					}
+					random_trade_node_member_province = {
+						limit = {
+							owned_by = ROOT
+							development = CAPITAL
+							is_capital = no
+							development = 20
+						}
+						save_event_target_as = reward_province
+					}
+					random_trade_node_member_province = {
+						limit = {
+							owned_by = ROOT
+							development = CAPITAL
+							is_capital = no
+							development = 25
+						}
+						save_event_target_as = reward_province
+					}
+					random_trade_node_member_province = {
+						limit = {
+							owned_by = ROOT
+							development = CAPITAL
+							is_capital = no
+							development = 30
+						}
+						save_event_target_as = reward_province
+					}
+				}
+			}
+			if = {
+				limit = { has_saved_event_target = reward_province }
+				event_target:reward_province = {
+					add_province_modifier = {
+						name = "dominant_trade_hub"
+						duration = -1
+					}
+				}
+			}
+			else = {
+				custom_tooltip = dominant_home_node_reward_tooltip
+			}
+		}
+	}
+}
+
+aboriginal_feudalism_missions = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		technology_group = aboriginal_tech
+		capital_scope = {
+			region = australia_region
+			}
+		}
+aboriginal_feudalism_defence = {
+	icon = mission_build_up_to_force_limit
+	position = 9
+	required_missions = { }
+	trigger = {
+		is_in_war = {
+			defender_leader = ROOT
+			casus_belli = cb_super_badboy
+			}	
+		hidden_trigger = { has_country_flag = defending_aboriginal_feudalism }
+		NOT = { has_institution = feudalism }
+		}
+	effect = {
+		add_country_modifier = {
+			name = defending_af
+			duration = 1825
+			}
+		custom_tooltip = can_complete_af_line
+		}
+	}
+aboriginal_feudalism = {
+	icon = mission_monarch_in_throne_room
+	position = 10
+	required_missions = { }
+	trigger = {
+		NOT = { has_institution = feudalism }
+		capital_scope = {
+			development = 25
+			has_building = native_ceremonial_fire_pit
+			has_building = native_palisade
+			has_building = native_fortified_house
+			has_building = native_irrigation
+			has_building = native_storehouse
+			}
+		num_of_owned_provinces_with = {
+			value = 10
+			region = australia_region
+			}
+		current_income_balance = 2
+		army_size = 12
+		land_maintenance = 1
+		}
+	effect = {
+		set_country_flag = aboriginal_feudalism
+		capital_scope = {
+			add_province_modifier = {
+				name = aboriginal_feudalism_m
+				duration = -1
+				}
+			}
+		}
+	}
+aboriginal_feudalism_2 = {
+	icon = mission_have_two_subjects
+	position = 11
+	required_missions = { aboriginal_feudalism }
+	trigger = {
+		num_of_subjects = 1
+		total_own_and_non_tributary_subject_development = 120
+		NOT = { federation_size = 2 }
+		NOT = { has_institution = feudalism }
+		}
+	effect = {
+		set_country_flag = aboriginal_feudalism_timer
+		capital_scope = {
+			add_province_modifier = {
+				name = aboriginal_feudalism_m2
+				duration = -1
+				}
+			add_next_institution_embracement = 5
+			}
+		custom_tooltip = aboriginal_feudalism_countdown_tt
+		}
+	}
+aboriginal_feudalism_3 = {
+	icon = mission_empire
+	position = 12
+	required_missions = { aboriginal_feudalism_2 }
+	trigger = {
+		capital_scope = {
+			current_institution = 75
+			}
+		total_own_and_non_tributary_subject_development = 175
+		has_country_modifier = winner_of_abo_feudal_war
+		NOT = { has_country_modifier = loser_of_abo_feudal_war }
+		NOT = { is_at_war = yes }
+		mission_completed = aboriginal_feudalism_defence
+		NOT = { has_institution = feudalism }
+	}
+	effect = {
+		capital_scope = {
+			add_next_institution_embracement = 25
+			}
+		country_event = {
+			id = aboriginal_feudalism.7
+			days = 14
+			}
+		add_country_modifier = {
+			name = embrace_af_bonus
+			duration = -1
+			}
+		}
+	}
+}
+australia_missions_slot2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+			technology_group = aboriginal_tech
+	}
+	australia_dev_capital = {
+		icon = mission_oceania_dev_capital
+		position = 7
+		required_missions = { australia_income_mission }
+		trigger = { 
+			grown_by_development = 50 
+		}
+		effect = {
+			capital_scope = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+				add_province_modifier = {
+					name = develope_australia_capital
+					duration = 3650
+					}
+				area = {
+					limit = { owned_by = ROOT }
+					add_province_modifier = {
+						name = "growth_of_capital"
+						duration = 9125 #25 years
+					}
+				}
+			}
+		}
+	}
+	australia_treasury = {
+		icon = mission_war_chest
+		position = 8
+		required_missions = { australia_dev_capital }
+		trigger = { 
+			treasury = 2000 
+		}
+		effect = {
+			add_country_modifier = {
+				name = "strong_treasury"
+				duration = 9125
+			}
+			add_corruption = -2
+		}
+	}
+	australia_imperial_ambition_mission = {
+		icon = mission_unite_home_region
+		position = 9
+		required_missions = { australia_treasury }
+		trigger = {
+			total_development = 1000
+		}
+		effect = {
+			add_prestige_or_monarch_power = {
+				amount = 30
+			}
+			add_country_modifier = {
+				name = "imperial_ambition"
+				duration = 9125
+			}
+			custom_tooltip = perma_claim_neighbor_area
+			hidden_effect = {
+				every_owned_province = {
+					every_neighbor_province = {
+						area = {
+							limit = {
+								NOT = { owned_by = ROOT }
+								NOT = { is_permanent_claim = ROOT    }
+								NOT = { is_core = ROOT    }
+							}
+							add_permanent_claim = ROOT
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+australia_missions_slot4 = {	
+	slot = 4
+	generic = yes
+	ai = yes
+	potential = {
+			technology_group = aboriginal_tech
+	}
+	australia_royal_marriage = {
+		icon = mission_oceania_royal_marriage
+		position = 1
+		required_missions = { }
+		trigger = {
+			OR = {
+				num_of_royal_marriages = 3
+				federation_size = 3
+				num_of_cities = 20
+			}
+			prestige = 30
+		}
+		effect = {
+			add_dip_power = 75
+		}
+	}
+	australia_alliances = {
+		icon = mission_gain_mana
+		position = 2
+		required_missions = { australia_royal_marriage }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = building_alliances.tooltip
+				num_of_allies = 2
+				calc_true_if = {
+					all_ally = {
+						has_opinion = {
+							who = ROOT
+							value = 150
+						}
+					}
+					amount = 2
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "influential_diplomacy"
+				duration = 9125 #25 years
+			}
+			define_advisor = {
+				type = diplomat
+				skill = 1
+				culture = ROOT
+				religion = ROOT
+				cost_multiplier = 0.5
+			}
+		}
+	}
+	australia_subjects = {
+		icon = mission_oceania_dev_capital
+		position = 3
+		required_missions = { australia_alliances }
+		trigger = { num_of_non_tributary_subjects = 2 }
+		effect = {
+			add_country_modifier = {
+				name = "obedient_subjects"
+				duration = 9125 #25 years
+			}
+			every_subject_country = {
+				add_liberty_desire = -10
+			}
+		}
+	}
+	australia_unite_home_area = {
+		icon = mission_invade_island
+		position = 4
+		required_missions = { australia_subjects }
+		provinces_to_highlight = {
+			area_for_scope_province = {
+				is_capital_of = ROOT
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			capital_scope = {
+				area_for_scope_province = {
+					type = all
+					NOT = {
+						owner = {
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			add_dip_power = 50
+			add_adm_power = 50
+			add_mil_power = 50
+			add_country_modifier = {
+				name = "hegemonic_ambition"
+				duration = 9125 #25 years
+			}
+			custom_tooltip = perma_claim_neighbor_area
+			hidden_effect = {
+				every_owned_province = {
+					every_neighbor_province = {
+						area = {
+							limit = {
+								NOT = { owned_by = ROOT }
+								NOT = { is_permanent_claim = ROOT    }
+								NOT = { is_core = ROOT    }
+							}
+							add_permanent_claim = ROOT
+						}
+					}
+				}
+			}
+		}
+	}
+	australia_unite_home_region = {
+		icon = mission_unite_home_region
+		position = 5
+		required_missions = { australia_unite_home_area }
+		provinces_to_highlight = {
+			region_for_scope_province = {
+				is_capital_of = ROOT
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			capital_scope = {
+				region_for_scope_province = {
+					type = all
+					NOT = {
+						owner = {
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			add_power_projection = {
+				type = mission_rewards_power_projection
+				amount = 25
+			}
+			add_country_modifier = {
+				name = "hegemonic_ambition"
+				duration = 9125 #25 years
+			}
+			custom_tooltip = home_region_generic_reward
+			tooltip = {
+				add_nationalism = -10
+			}
+			hidden_effect = {
+				capital_scope = {
+					every_owned_province = {
+						limit = {
+							region = PREV
+						}
+						add_nationalism = -10
+					}
+				}
+			}
+		}
+	}
+	australia_colonize = {
+		icon = mission_invade_island
+		position = 7
+		required_missions = { australia_unite_home_region }
+		trigger = {
+			is_tribal = no
+			NOT = {
+				government = native
+			}
+			monthly_income = 50
+		}
+		effect = {
+			add_country_modifier = {
+				name = "colonize_the_continent"
+				duration = -1
+			}
+		}
+	}
+australia_oceanic_influence = {
+	icon = mission_polynesian_grand_navy
+	position = 8
+	required_missions = { australia_conquer_fiji }
+	provinces_to_highlight = {
+		region = oceanea_region
+		NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+	trigger = {
+		owns_core_province = 4936
+		owns_core_province = 4935
+		owns_core_province = 4934
+		owns_core_province = 1240
+		num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 25
+					region = oceanea_region
+			}
+			
+		}
+	effect = {
+		set_country_flag = oceanic_empire_yes
+		add_power_projection = {
+			type = mission_rewards_power_projection
+			amount = 25
+			}
+		every_owned_province = {
+				limit = {
+					region = oceanea_region
+					}
+			add_nationalism = -10
+			}
+		custom_tooltip = forming_oceanic_empire_tt
+		}
+	}
+}
+
+australia_missions_slot5 = {
+	slot = 5
+	generic = yes
+	ai = yes
+	potential = {
+			technology_group = aboriginal_tech
+	}
+	australia_build_army_mission = {
+		icon = mission_oceania_build_army_mission
+		position = 1
+		required_missions = { }
+		trigger = {
+			army_size_percentage = 1
+		}
+		effect = { 
+			add_country_modifier = {
+				name = "thriving_arms_industry"
+				duration = 9125 #25 years
+			}
+			custom_tooltip = claim_neighbor_province
+			hidden_effect = {
+				every_owned_province = {
+					every_neighbor_province = {
+						limit = {
+							NOT = { owned_by = ROOT }
+							NOT = { is_permanent_claim = ROOT	}
+							NOT = { is_core = ROOT	}
+						}
+						add_claim = ROOT
+					}
+				}
+			}
+		}
+	}
+	australia_assemble_an_army = {
+		icon = mission_oceania_assemble_an_army
+		position = 2
+		required_missions = { australia_build_army_mission }
+		trigger = { 
+			army_size = 80 
+		}
+		effect = {
+			add_country_modifier = {
+				name = "army_enthusiasm"
+				duration = 9125 #25 years
+			}
+			custom_tooltip = perma_claim_home_region
+			hidden_effect = {
+				capital_scope = {
+					every_province = {
+						limit = {
+							region = PREV
+							NOT = { owned_by = ROOT }
+							NOT = { is_core = ROOT }
+						}
+						add_permanent_claim = ROOT
+					}
+				}
+			}
+		}
+	}
+	australia_remove_euro = {
+		icon = mission_oceania_build_army_mission
+		position = 3
+		required_missions = { australia_assemble_an_army }
+		trigger = {
+			is_tribal = no
+			has_institution = feudalism
+			custom_trigger_tooltip = {
+				tooltip = new_world_remove_euro_toolip
+				capital_scope = {
+					region_for_scope_province = {
+						type = all
+						NOT = {
+							owner = {
+								technology_group = western
+							}
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			add_mil_power = 200
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 7300
+			}
+			custom_tooltip = perma_claim_neighbor_area
+			hidden_effect = {
+				every_owned_province = {
+					every_neighbor_province = {
+						area = {
+							limit = {
+								NOT = { owned_by = ROOT }
+								NOT = { is_permanent_claim = ROOT    }
+								NOT = { is_core = ROOT    }
+							}
+							add_permanent_claim = ROOT
+						}
+					}
+				}
+			}
+		}
+	}
+	australia_sunset_invasion = {
+		icon = mission_oceania_assemble_an_army
+		position = 4
+		required_missions = { australia_remove_euro }
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 5
+				continent = europe
+			}
+		}
+		effect = {
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+			custom_tooltip = perma_claim_neighbor_area
+			hidden_effect = {
+				every_owned_province = {
+					every_neighbor_province = {
+						area = {
+							limit = {
+								NOT = { owned_by = ROOT }
+								NOT = { is_permanent_claim = ROOT    }
+								NOT = { is_core = ROOT    }
+							}
+							add_permanent_claim = ROOT
+						}
+					}
+				}
+			}
+		}
+	}
+	australia_control_unrest = {
+		icon = mission_oceania_dev_capital
+		position = 5
+		required_missions = { australia_unite_home_area }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			unrest = 2
+		}
+		trigger = {
+			NOT = {
+				any_owned_province = {
+					unrest = 2
+				}
+			}
+		}
+		effect = {
+			add_stability = 1
+		}
+	}
+	build_temples_australia = {
+		icon = mission_hands_praying
+		position = 6
+		required_missions = { australia_control_unrest }
+		trigger = {
+			OR = {
+				temple = 5
+				AND = {
+					native_ceremonial_fire_pit = 1
+					native_sweat_lodge = 1
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "building_spree"
+				duration = 9125
+			}
+		}
+	}
+}
+oceania_missions_modernization_tag = {
+	slot = 3
+	generic = no
+	ai = no
+	potential = {
+			technology_group = polynesian_tech
+	}
+	oceania_modernization_tag = {
+		icon = mission_have_manufactories
+		position = 1
+		required_missions = { }
+		trigger = {
+			is_tribal = no
+			NOT = {
+				government = native
+			}
+			has_institution = feudalism
+			any_neighbor_country = {
+				NOT = {
+					tech_difference = 1
+				}
+			}
+		}
+		effect = {
+			add_innovativeness_big_effect = yes
+			add_prestige_or_monarch_power = {
+				amount = 20
+			}
+		}
+	}
+}
+
 oceania_missions_slot1 = {
 	slot = 1
 	generic = no
 	ai = no
 	potential = {
-		OR = {
-			technology_group = aboriginal_tech
 			technology_group = polynesian_tech
-		}
 	}
 	oceania_income_mission = {
 		icon = mission_war_chest
@@ -398,6 +1129,7 @@ oceania_missions_slot1 = {
 		}
 	}
 }
+
 
 polynesian_missions_slot1 = {
 	slot = 1
@@ -703,10 +1435,7 @@ oceania_missions_slot2 = {
 	generic = no
 	ai = yes
 	potential = {
-		OR = {
-			technology_group = aboriginal_tech
 			technology_group = polynesian_tech
-		}
 	}
 	oceania_dev_capital = {
 		icon = mission_oceania_dev_capital
@@ -784,10 +1513,7 @@ oceania_missions_slot4 = {
 	generic = yes
 	ai = yes
 	potential = {
-		OR = {
-			technology_group = aboriginal_tech
 			technology_group = polynesian_tech
-		}
 	}
 	oceania_royal_marriage = {
 		icon = mission_oceania_royal_marriage
@@ -799,7 +1525,7 @@ oceania_missions_slot4 = {
 				federation_size = 3
 				num_of_cities = 20
 			}
-			prestige = 30
+			prestige = 40
 		}
 		effect = {
 			add_dip_power = 75
@@ -953,54 +1679,19 @@ oceania_missions_slot4 = {
 	}
 	oceania_colonize = {
 		icon = mission_invade_island
-		position = 7
-		required_missions = { oceania_unite_home_region }
+		position = 9
+		required_missions = { oceania_unite_home_region oceania_treasury }
 		trigger = {
 			is_tribal = no
 			NOT = {
 				government = native
 			}
-			monthly_income = 50
 		}
 		effect = {
 			add_country_modifier = {
 				name = "colonize_the_continent"
 				duration = -1
 			}
-		}
-	}
-australia_oceanic_influence = {
-	icon = mission_polynesian_grand_navy
-	positions = 8
-	required_missions = { australia_conquer_fiji }
-	provinces_to_highlight = {
-		region = oceanea_region
-		NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-	trigger = {
-		owns_core_province = 4936
-		owns_core_province = 4935
-		owns_core_province = 4934
-		owns_core_province = 1240
-		num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 25
-					region = oceanea_region
-			}
-			
-		}
-	effect = {
-		custom_tooltip = forming_oceanic_empire_tt
-		add_power_projection = {
-			type = mission_rewards_power_projection
-			amount = 25
-			}
-		every_owned_province = {
-				limit = {
-					region = oceanea_region
-					}
-			add_nationalism = -10
-			}
-		set_country_flag = oceanic_empire_yes
 		}
 	}
 }
@@ -1010,10 +1701,7 @@ oceania_missions_slot5 = {
 	generic = yes
 	ai = yes
 	potential = {
-		OR = {
-			technology_group = aboriginal_tech
 			technology_group = polynesian_tech
-		}
 	}
 	oceania_build_army_mission = {
 		icon = mission_oceania_build_army_mission
@@ -1184,3 +1872,6 @@ oceania_missions_slot5 = {
 		}
 	}
 }
+
+
+			
