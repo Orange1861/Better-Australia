@@ -19,6 +19,6 @@ low_aboriginal_population = {
 
 isolated_aboriginal_development = {
 	monthly_reform_progress = -0.1
-	relation_with_same_culture_group = -10
+	relation_with_same_culture_group = -25
 	stability_cost_modifier = -0.1
 }
