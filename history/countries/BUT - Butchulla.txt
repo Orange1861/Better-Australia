@@ -4,7 +4,7 @@ government_rank = 1
 primary_culture = maric
 religion = dreamtime
 technology_group = aboriginal_tech
-capital = 4850
+capital = 1094
 
 
 1444.11.11 = {
