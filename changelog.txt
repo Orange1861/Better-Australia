@@ -5,7 +5,7 @@ Moved development around to reflect Aboriginal development
 Added early negative game modifiers to reflect Aboriginal Australian challenges
 Added two Aboriginal cultures
 Added Uluru as a great project
-Added 10 Aboriginal natives
+Added doubled Aboriginal native count (10 -> 20)
 Split Australia into two nodes, western node goes to India and South Africa
 
 New Zealand Skeleton Content
