@@ -1,6 +1,6 @@
 Aboriginal Australia Rework
 
-Added 20+ Australia provinces
+Added 30 Australia provinces
 Moved development around to reflect Aboriginal development
 Added early negative game modifiers to reflect Aboriginal Australian challenges
 Added two Aboriginal cultures
@@ -12,3 +12,4 @@ New Zealand Skeleton Content
 
 Added Maori religion
 Split Colonial Australia into Colonial Australia and Colonial New Zealand
+Added two provinces to Southern New Zealand and moved Waitaha

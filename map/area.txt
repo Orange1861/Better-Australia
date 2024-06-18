@@ -1736,7 +1736,7 @@ pilbara_area = { #4
 }
 
 tasmania_area = { #3
-	1085 4868 4869
+	1085 4868 4869 4972
 }
 
 northern_polynesia_area = { #3
@@ -1760,7 +1760,7 @@ te_ika_a_maui_waho_area = { #3
 }
 
 te_waipounamu_area = { #3
-	1109 1246 2738
+	1109 1246 2738 4973 4974
 }
 
 outback_area = {
