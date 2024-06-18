@@ -1,0 +1,14 @@
+Aboriginal Australia Rework
+
+Added 20+ Australia provinces
+Moved development around to reflect Aboriginal development
+Added early negative game modifiers to reflect Aboriginal Australian challenges
+Added two Aboriginal cultures
+Added Uluru as a great project
+Added 10 Aboriginal natives
+Split Australia into two nodes, western node goes to India and South Africa
+
+New Zealand Skeleton Content
+
+Added Maori religion
+Split Colonial Australia into Colonial Australia and Colonial New Zealand
