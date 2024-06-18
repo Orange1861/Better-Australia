@@ -1,3 +1,5 @@
+1.0.0
+
 Aboriginal Australia Rework
 
 Added 30 Australia provinces
