@@ -21,3 +21,73 @@ harsh_exploration = {
 sula_easy_colony = {
 	local_colonial_growth = 25 
 }
+
+aboriginal_feudalism_m = {
+	institution_growth = 0.625
+	local_tax_modifier = 0.1
+}
+aboriginal_feudalism_m2 = {
+	institution_growth = 0.625
+}
+aboriginal_feudalism_c = {
+	diplomatic_reputation = -5
+	vassal_income = 0.2
+}
+aboriginal_feudalism_countdown = {
+	diplomatic_reputation = -1
+}
+afcd2 = {
+	diplomatic_reputation = -1
+}
+afcd3 = {
+	diplomatic_reputation = -1
+}
+afcd4 = {
+	diplomatic_reputation = -1
+}
+afcd5 = {
+	diplomatic_reputation = -1
+}
+afcd6 = {
+	diplomatic_reputation = -1
+}
+afcd7 = {
+	diplomatic_reputation = -1
+}
+afcd8 = {
+	diplomatic_reputation = -1
+}
+afcd9 = {
+	diplomatic_reputation = -1
+}
+embrace_af_bonus = {
+	monthly_splendor = 0.5
+	monthly_reform_progress_modifier = 0.1
+	legitimacy = 0.33
+	republican_tradition = 0.1
+	devotion = 0.33
+}
+embrace_af_1 = {
+	embracement_cost = -0.10
+}
+embrace_af_2 = {
+	global_institution_spread = 0.5
+}
+defending_af = {
+	manpower_recovery_speed = 0.5
+	land_forcelimit_modifier = 0.25
+	global_tax_modifier = 0.5
+	defensiveness = 0.5
+}
+develope_australia_capital = {
+	development_cost = -0.15
+}
+winner_of_abo_feudal_war = {
+	technology_cost = -0.25
+}
+loser_of_abo_feudal_war = {
+	technology_cost = 0.50
+}
+dev_af = {
+	local_tax_modifier = 0.25
+}
