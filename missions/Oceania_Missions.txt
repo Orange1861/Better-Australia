@@ -73,13 +73,6 @@ australia_in_search_of_resources = {
 			}
 		custom_tooltip = aus_search_new_res_disc_tt
 		}
-	tooltip = {
-		add_country_modifier = {
-			name = harsh_exploration
-			duration = -1
-			}
-		custom_tooltip = aus_search_new_res_disc_tt
-	}
 }
 australia_modernize_ports = {
 	icon = mission_trade_company_region_abroad
@@ -150,6 +143,26 @@ australia_modernize_ports = {
 		custom_tooltip = aus_check_disc_tt
 		}
 	}
+australia_control_the_area = {
+	icon = settle_austrialasia
+	position = 5
+	required_missions = { oceania_unite_home_region }
+	trigger = {
+		grown_by_states = 5
+		}
+	effect = {
+		australia_region = {
+			limit = {
+				NOT = { is_permanent_claim = ROOT}
+				}
+			add_permanent_claim = ROOT
+			}
+		add_power_projection = {
+			type = mission_rewards_power_projection
+			amount = 25
+			}
+		}
+	}
 australia_seventh_state = {
 	icon = mission_unite_home_region
 	position = 6
@@ -184,15 +197,9 @@ australia_seventh_state = {
 				add_permanent_claim = ROOT
 				}
 			1243 = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					}
 				add_permanent_claim = ROOT
 				}
 			1989 = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					}
 				add_permanent_claim = ROOT
 				}
 			}
@@ -222,6 +229,7 @@ australia_conquer_fiji = {
 			}
 		}	
 	effect = {
+		set_country_flag = can_core_poly
 		oceanea_region = {
 			limit = {
 				NOT = { is_permanent_claim = ROOT}
@@ -320,7 +328,7 @@ oceania_missions_slot1 = {
 	}
 	oceania_dominate_home_trade_node = {
 		icon = mission_oceania_dev_capital
-		position = 9
+		position = 8
 		required_missions = { oceania_income_mission }
 		trigger = {
 			home_trade_node = {
@@ -399,6 +407,120 @@ oceania_missions_slot1 = {
 	}
 }
 
+aboriginal_feudalism_missions = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		technology_group = aboriginal_tech
+		capital_scope = {
+			region = australia_region
+			}
+		}
+aboriginal_feudalism_defence = {
+	icon = mission_build_up_to_force_limit
+	position = 9
+	required_missions = { }
+	trigger = {
+		is_in_war = {
+			defender_leader = ROOT
+			casus_belli = cb_super_badboy
+			}	
+		hidden_trigger = { has_country_flag = defending_aboriginal_feudalism }
+		NOT = { has_institution = feudalism }
+		}
+	effect = {
+		add_country_modifier = {
+			name = defending_af
+			duration = 1825
+			}
+		custom_tooltip = can_complete_af_line
+		}
+	}
+aboriginal_feudalism = {
+	icon = mission_monarch_in_throne_room
+	position = 10
+	required_missions = { }
+	trigger = {
+		NOT = { has_institution = feudalism }
+		capital_scope = {
+			development = 25
+			has_building = native_ceremonial_fire_pit
+			has_building = native_palisade
+			has_building = native_fortified_house
+			has_building = native_irrigation
+			has_building = native_storehouse
+			}
+		num_of_owned_provinces_with = {
+			value = 10
+			region = australia_region
+			}
+		current_income_balance = 2
+		army_size = 12
+		land_maintenance = 1
+		}
+	effect = {
+		set_country_flag = aboriginal_feudalism
+		capital_scope = {
+			add_province_modifier = {
+				name = aboriginal_feudalism_m
+				duration = -1
+				}
+			}
+		}
+	}
+aboriginal_feudalism_2 = {
+	icon = mission_have_two_subjects
+	position = 11
+	required_missions = { aboriginal_feudalism }
+	trigger = {
+		num_of_subjects = 1
+		total_own_and_non_tributary_subject_development = 120
+		NOT = { federation_size = 2 }
+		NOT = { has_institution = feudalism }
+		}
+	effect = {
+		set_country_flag = aboriginal_feudalism_timer
+		capital_scope = {
+			add_province_modifier = {
+				name = aboriginal_feudalism_m2
+				duration = -1
+				}
+			add_next_institution_embracement = 5
+			}
+		custom_tooltip = aboriginal_feudalism_countdown_tt
+		}
+	}
+aboriginal_feudalism_3 = {
+	icon = mission_empire
+	position = 12
+	required_missions = { aboriginal_feudalism_2 }
+	trigger = {
+		capital_scope = {
+			current_institution = 75
+			}
+		total_own_and_non_tributary_subject_development = 175
+		has_country_modifier = winner_of_abo_feudal_war
+		NOT = { has_country_modifier = loser_of_abo_feudal_war }
+		NOT = { is_at_war = yes }
+		mission_completed = aboriginal_feudalism_defence
+		NOT = { has_institution = feudalism }
+	}
+	effect = {
+		capital_scope = {
+			add_next_institution_embracement = 25
+			}
+		country_event = {
+			id = aboriginal_feudalism.7
+			days = 14
+			}
+		add_country_modifier = {
+			name = embrace_af_bonus
+			duration = -1
+			}
+		}
+	}
+}
 polynesian_missions_slot1 = {
 	slot = 1
 	generic = yes
@@ -720,6 +842,10 @@ oceania_missions_slot2 = {
 				add_base_tax = 1
 				add_base_production = 1
 				add_base_manpower = 1
+				add_province_modifier = {
+					name = develope_australia_capital
+					duration = 3650
+					}
 				area = {
 					limit = { owned_by = ROOT }
 					add_province_modifier = {
@@ -971,7 +1097,7 @@ oceania_missions_slot4 = {
 	}
 australia_oceanic_influence = {
 	icon = mission_polynesian_grand_navy
-	positions = 8
+	position = 8
 	required_missions = { australia_conquer_fiji }
 	provinces_to_highlight = {
 		region = oceanea_region
@@ -989,7 +1115,7 @@ australia_oceanic_influence = {
 			
 		}
 	effect = {
-		custom_tooltip = forming_oceanic_empire_tt
+		set_country_flag = oceanic_empire_yes
 		add_power_projection = {
 			type = mission_rewards_power_projection
 			amount = 25
@@ -1000,7 +1126,7 @@ australia_oceanic_influence = {
 					}
 			add_nationalism = -10
 			}
-		set_country_flag = oceanic_empire_yes
+		custom_tooltip = forming_oceanic_empire_tt
 		}
 	}
 }
@@ -1184,3 +1310,5 @@ oceania_missions_slot5 = {
 		}
 	}
 }
+
+			

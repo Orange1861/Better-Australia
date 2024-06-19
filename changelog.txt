@@ -15,3 +15,10 @@ New Zealand Skeleton Content
 Added Maori religion
 Split Colonial Australia into Colonial Australia and Colonial New Zealand
 Added two provinces to Southern New Zealand and moved Waitaha
+
+Added 'Aboriginal Feudalism' mission line
+Added events for the 'Aboriginal Feudalism" mission line
+Added new 'on_actions' for the 'Aboriginal Feudalism' mission line
+Added new country and province modifiers for the 'Aboriginal Feudalism' mission line
+Add new decisions for coring provinces in Polynesia
+Added new localisation for everything listed above

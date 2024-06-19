@@ -75,3 +75,375 @@ country_event = {
 		goto = 1087
 		}
 }		
+namespace = aboriginal_feudalism
+
+country_event = {
+	id = aboriginal_feudalism.1
+	title = aboriginal_feudalism.1t
+	desc = aboriginal_feudalism.1d
+	picture = ACCUSATION_eventPicture
+
+	trigger = {
+		has_country_flag = aboriginal_feudalism_timer
+		}
+	mean_time_to_happen = { months = 12 }
+	option = {
+		name = aboriginal_feudalism.1a
+		ai_chance { factor = 100 }
+		set_country_flag = aboriginal_feudalism_timer2
+		clr_country_flag = aboriginal_feudal_timer
+		set_country_flag = afcw
+		add_country_modifier = {
+			name = aboriginal_feudalism_c
+			duration = -1
+			}
+		}
+	}
+country_event = {
+	id = aboriginal_feudalism.2
+	title = aboriginal_feudalism.2t
+	desc = aboriginal_feudalism.2d
+	picture = STREET_SPEECH_eventPicture
+
+	trigger = {
+		has_country_flag = aboriginal_feudalism_timer2
+		diplomatic_reputation = -10
+		NOT = { has_country_flag = cddone_af }
+		capital_scope = {
+			NOT = {	current_institution = 75 }
+			}
+		}
+	mean_time_to_happen = { months = 8 }
+	option = {
+		name = aboriginal_feudalism.countdown
+		ai_chance = { factor = 100 }
+		capital_scope = {
+			add_next_institution_embracement = 5
+			}
+		if = {
+			limit = { has_country_flag = afcw9 }
+			add_country_modifier = {
+				name = afcd9
+				duration = -1
+				}
+			clr_country_flag = afcw9
+			set_country_flag = cddone_af
+		}
+		if = {
+			limit = { has_country_flag = afcw8 }
+			add_country_modifier = {
+				name = afcd8
+				duration = -1
+				}
+			clr_country_flag = afcw8
+			set_country_flag = afcw9
+		}
+		if = {
+			limit = { has_country_flag = afcw7 }
+			add_country_modifier = {
+				name = afcd7
+				duration = -1
+				}
+			clr_country_flag = afcw7
+			set_country_flag = afcw8
+		}
+		if = {
+			limit = { has_country_flag = afcw6 }
+			add_country_modifier = {
+				name = afcd6
+				duration = -1
+				}
+			clr_country_flag = afcw6
+			set_country_flag = afcw7
+		}
+		if = {
+			limit = { has_country_flag = afcw5 }
+			add_country_modifier = {
+				name = afcd5
+				duration = -1
+				}
+			clr_country_flag = afcw5
+			set_country_flag = afcw6
+		}
+		if = {
+			limit = { has_country_flag = afcw4 }
+			add_country_modifier = {
+				name = afcd4
+				duration = -1
+				}
+			clr_country_flag = afcw4
+			set_country_flag = afcw5
+		}
+		if = {
+			limit = { has_country_flag = afcw3 }
+			add_country_modifier = {
+				name = afcd3
+				duration = -1
+				}
+			clr_country_flag = afcw3
+			set_country_flag = afcw4
+		}
+		if = {
+			limit = { has_country_flag = afcw2 }
+			add_country_modifier = {
+				name = afcd2
+				duration = -1
+				}
+			clr_country_flag = afcw2
+			set_country_flag = afcw3
+ 
+		}
+		if = {
+			limit = { has_country_flag = afcw }
+			add_country_modifier = {
+				name = aboriginal_feudalism_countdown
+				duration = -1
+				}
+			clr_country_flag = afcw
+			set_country_flag = afcw2
+
+		}
+	}
+}
+country_event = {
+	id = aboriginal_feudalism.3
+	title = aboriginal_feudalism.3t
+	desc = aboriginal_feudalism.3d
+	picture = ANGRY_MOB_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { diplomatic_reputation = -10 }
+		OR = {
+			has_country_flag = afcw
+			has_country_flag = afcw2
+			has_country_flag = afcw3
+			has_country_flag = afcw4
+			has_country_flag = afcw5
+			has_country_flag = afcw6
+			has_country_flag = afcw7
+			has_country_flag = afcw8
+			has_country_flag = afcw9
+			has_country_flag = cddone_af
+			}
+		}
+	immediate = {
+		clr_country_flag = afcw
+		clr_country_flag = afcw2
+		clr_country_flag = afcw3
+		clr_country_flag = afcw4
+		clr_country_flag = afcw5
+		clr_country_flag = afcw6
+		clr_country_flag = afcw7
+		clr_country_flag = afcw8
+		clr_country_flag = afcw9
+		clr_country_flag = cddone_af
+		set_country_flag = af_coalition
+		}
+	option = {
+		name = aboriginal_feudalism.3a
+		ai_chance = { factor = 100 }
+		add_rival = every_neighbor_country
+		every_neighbor_country = {
+			add_rival = ROOT		
+			}
+		country_event = {
+			id = aboriginal_feudalism.4
+			days = 60
+			}
+		hidden_effect = {
+			every_country = {
+				limit = {
+					capital_scope = {
+						region = australia_region
+						}
+					}
+				add_aggressive_expansion = {
+					who = ROOT
+					value = 100
+					apply_calc = no
+				}
+			}
+		}
+		custom_tooltip = afae
+		custom_tooltip = af3win
+		custom_tooltip = af3lose
+	}
+}
+country_event = {
+	id = aboriginal_feudalism.4
+	title = aboriginal_feudalism.4t
+	desc = aboriginal_feudalism.4d
+	picture = BATTLE_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = af_coalition
+	}
+	option = {
+		name = aboriginal_feudalism.4a
+		ai_chance = { factor = 100 }
+		every_country = {
+			limit = {
+				AND = {
+					capital_scope = {
+						region = australia_region
+						}
+					is_rival = ROOT
+				}
+			}
+			form_coalition_against = ROOT
+			add_casus_belli = {
+				target = ROOT
+				type = cb_super_badboy
+				months = 12
+			}
+		}
+	country_event = {
+		id = aboriginal_feudalism.5
+		days = 14
+		}
+	custom_tooltip = daf_tt
+	}
+}
+country_event = {
+	id = aboriginal_feudalism.5
+	title = aboriginal_feudalism.5t
+	desc = aboriginal_feudalism.5d
+	picture = CIVIL_WAR_eventPicture
+
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		set_country_flag = defending_aboriginal_feudalism
+		random_country = {
+			limit = {
+				capital_scope = {
+					region = australia_region
+					}
+				is_in_coalition = yes
+				}
+			add_historical_rival = ROOT
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_super_badboy
+			}
+		}
+		every_country = {
+				limit = {
+					capital_scope = {
+						region = australia_region
+						}
+					}
+				add_aggressive_expansion = {
+					who = ROOT
+					value = -75
+					apply_calc = no
+				}
+			}
+	}
+	option = {
+		name = aboriginal_feudalism.5a
+		ai_chance = { factor = 100 }
+	}
+}
+
+
+
+country_event = {
+	id = aboriginal_feudalism.7
+	title = aboriginal_feudalism.7t
+	desc = aboriginal_feudalism.7d
+	picture = REFORM_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = aboriginal_feudalism.7a1
+		ai_chance = { factor = 50 }
+		add_country_modifier = {
+			name = embrace_af_1
+			duration = 3650
+			}
+		}
+	option = {
+		name = aboriginal_feudalism.7a2
+		ai_chance = { factor = 50 }
+		add_country_modifier = {
+			name = embrace_af_2
+			duration = 3650
+			}
+		}
+}
+country_event = {
+	id = aboriginal_feudalism.8
+	title = aboriginal_feudalism.8t
+	desc = aboriginal_feudalism.8d
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = aboriginal_feudalism.8a
+		ai_chance = { factor = 100 }
+		add_country_modifier = {
+			name = winner_of_abo_feudal_war
+			duration = 3650
+			}
+		clr_country_flag = defending_aboriginal_feudalism
+		}
+}
+country_event = {
+	id = aboriginal_feudalism.9
+	title = aboriginal_feudalism.9t
+	desc = aboriginal_feudalism.9d
+	picture = BAD_WITH_MONARCH_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = aboriginal_feudalism.9a
+		ai_chance = { factor = 100 }
+		add_country_modifier = {
+			name = loser_of_abo_feudal_war
+			duration = 3650
+		}
+		capital_scope = {
+			add_next_institution_embracement = -100
+			}
+		remove_province_modifier = aboriginal_feudalism_m
+		remove_province_modifier = aboriginal_feudalism_m2
+		custom_tooltip = af_lose_grow_tt
+		clr_country_flag = defending_aboriginal_feudalism
+	}
+}
+country_event = {
+	id = aboriginal_feudalism.10
+	title = aboriginal_feudalism.10t
+	desc = aboriginal_feudalism.10d
+	picture = INVENTION_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		capital_scope = {
+			current_institution = 75
+			}
+		NOT = { has_institution = feudalism }
+	}
+	option = {
+		name = aboriginal_feudalism.10a
+		ai_chance = { factor = 100 }
+		remove_province_modifier = aboriginal_feudalism_m
+		remove_province_modifier = aboriginal_feudalism_m2
+		custom_tooltip = af_lose_grow_tt
+		capital_scope = {
+			add_province_modifier = {
+				name = dev_af
+				duration = -1
+				}
+		}
+	}
+}
