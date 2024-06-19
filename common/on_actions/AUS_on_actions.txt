@@ -1,0 +1,22 @@
+on_war_won = {
+	if = {
+		limit = {
+			ROOT = {
+				has_country_flag = defending_aboriginal_feudalism
+				NOT = { is_at_war = yes }
+				}
+			}
+		country_event = { id = aboriginal_feudalism.8}
+		}
+}
+on_war_lost = {
+	if = {
+		limit = {
+			ROOT = {
+				has_country_flag = defending_aboriginal_feudalism
+				NOT = { is_at_war = yes }
+				}
+			}
+		country_event = { id = aboriginal_feudalism.9}
+		}
+}
