@@ -180,13 +180,14 @@ pagan = {
 		color = { 195 117 234 }
 		country = {
 			global_defender_dice_roll_bonus = 1
-			naval_attrition = -0.4
+			embracement_cost = -0.5
 		}
 		country_as_secondary = {
 			global_colonial_growth = 10
 			defensiveness = 0.2
 		}
 		heretic = { HOTURPA }
+		fervor = yes
 	}
 	crusade_name = CRUSADE
 	harmonized_modifier = harmonized_pagan
