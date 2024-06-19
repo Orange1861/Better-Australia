@@ -22,3 +22,9 @@ isolated_aboriginal_development = {
 	relation_with_same_culture_group = -25
 	stability_cost_modifier = -0.1
 }
+
+kgari_fishing = {
+	trade_goods_size = 1.0
+	local_manpower_modifier = 0.05
+	local_monthly_devastation = -0.02
+}

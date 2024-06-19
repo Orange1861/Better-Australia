@@ -144,3 +144,6 @@
  COLONIAL_NZ_new_zealand_dr_adj:0 "Nova Zeelandia"
  COLONIAL_NZ_Root_Culture_GetName_NZ:0 "[Root.GetAdjective] New Zealand"
  COLONIAL_NZ_Root_Culture_GetName_NZ_adj:0 "[Root.GetAdjective] New Zealander"
+ 
+ kgari_fishing:0 "K'Gari Fishing"
+ desc_kgari_fishing:0 "K'gari's abundance of fish made it sufficiently rich in food resources to sustain one of the densest pre-contact populations of the Australian continent."
