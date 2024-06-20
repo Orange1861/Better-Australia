@@ -2,7 +2,7 @@ fervor_trade = {
 	cost = 8
 	potential = {
 		FROM = { NOT = { has_country_flag = ned_buff_fervor_actions } }
-		NOT = { religion = maori }
+		NOT = { religion = maori_faith }
 	}
 	trigger = {
 
@@ -42,7 +42,7 @@ fervor_war = {
 	cost = 8
 	potential = {
 		FROM = { NOT = { has_country_flag = ned_buff_fervor_actions } }
-		NOT = { religion = maori }
+		NOT = { religion = maori_faith }
 	}
 	trigger = {
 	}
@@ -68,7 +68,7 @@ fervor_stability = {
 	cost = 8
 	potential = {
 		FROM = { NOT = { has_country_flag = ned_buff_fervor_actions } }
-		NOT = { religion = maori }
+		NOT = { religion = maori_faith }
 	}
 	trigger = {
 	}
@@ -100,7 +100,7 @@ fervor_diplomacy = {
 	cost = 8
 	potential = {
 		FROM = { NOT = { has_country_flag = ned_buff_fervor_actions } }
-		NOT = { religion = maori }
+		NOT = { religion = maori_faith }
 	}
 	trigger = {
 	}
@@ -127,7 +127,7 @@ fervor_trade_buffed = {
 	cost = 8
 	potential = {
 		FROM = { has_country_flag = ned_buff_fervor_actions }
-		NOT = { religion = maori }
+		NOT = { religion = maori_faith }
 	}
 	trigger = {
 	}
@@ -166,7 +166,7 @@ fervor_war_buffed = {
 	cost = 8
 	potential = {
 		FROM = { has_country_flag = ned_buff_fervor_actions }
-		NOT = { religion = maori }
+		NOT = { religion = maori_faith }
 	}
 	trigger = {
 	}
@@ -192,7 +192,7 @@ fervor_stability_buffed = {
 	cost = 8
 	potential = {
 		FROM = { has_country_flag = ned_buff_fervor_actions }
-		NOT = { religion = maori }
+		NOT = { religion = maori_faith }
 	}
 	trigger = {
 	}
@@ -224,7 +224,7 @@ fervor_diplomacy_buffed = {
 	cost = 8
 	potential = {
 		FROM = { has_country_flag = ned_buff_fervor_actions }
-		NOT = { religion = maori }
+		NOT = { religion = maori_faith }
 	}
 	trigger = {
 	}
