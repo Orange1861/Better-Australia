@@ -1,0 +1,16 @@
+#2735 - Gunditjmara
+
+culture = kulin
+religion = dreamtime
+capital = "Bodaruwitj"
+hre = no
+trade_goods = unknown
+base_manpower = 1
+base_tax = 1 
+base_production = 1
+native_size = 6
+native_ferocity = 1
+native_hostileness = 9
+discovered_by = aboriginal_tech
+
+1802.1.1 = { discovered_by = GBR } # Matthew Flinders

@@ -1,0 +1,71 @@
+#Kurlin alliance
+
+alliance = {
+	first = WRU
+	second = BOO
+	start_date = 1400.1.1
+	end_date = 1800.1.1
+}
+
+alliance = {
+	first = WRU
+	second = TUG
+	start_date = 1400.1.1
+	end_date = 1800.1.1
+}
+
+alliance = {
+	first = WRU
+	second = WAA
+	start_date = 1400.1.1
+	end_date = 1800.1.1
+}
+
+alliance = {
+	first = WRU
+	second = DJB
+	start_date = 1400.1.1
+	end_date = 1800.1.1
+}
+
+alliance = {
+	first = BOO
+	second = TUG
+	start_date = 1400.1.1
+	end_date = 1800.1.1
+}
+
+alliance = {
+	first = BOO
+	second = WAA
+	start_date = 1400.1.1
+	end_date = 1800.1.1
+}
+
+alliance = {
+	first = BOO
+	second = DJB
+	start_date = 1400.1.1
+	end_date = 1800.1.1
+}
+
+alliance = {
+	first = TUG
+	second = WAA
+	start_date = 1400.1.1
+	end_date = 1800.1.1
+}
+
+alliance = {
+	first = TUG
+	second = DJB
+	start_date = 1400.1.1
+	end_date = 1800.1.1
+}
+
+alliance = {
+	first = WAA
+	second = DJB
+	start_date = 1400.1.1
+	end_date = 1800.1.1
+}

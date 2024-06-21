@@ -55,7 +55,7 @@ country_decisions = {
 				is_core = ROOT
 			}
 			num_of_owned_provinces_with = {
-				value = 35
+				value = 50
 				is_core = ROOT
 				region = australia_region
 				is_city = yes

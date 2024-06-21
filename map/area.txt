@@ -1715,14 +1715,6 @@ eastern_australia_area = { #4 (New South Wales)
 	1091 1092 4855 4856
 }
 
-southern_australia_area = { #4 (Melbourne/Victoria)
-	1087 1088 2734 4861 1089
-}
-
-murray_river_area = { #4
-	1086 2735 2736 4862 4957
-}
-
 illawara_area = { #5
 	1090 4857 4858 4859 4860
 }
@@ -1770,12 +1762,13 @@ outback_area = {
 nullarbor_area = {
 	2727 4946 4947 4948 4950
 }
-sunraysia = {
-	4958 4959 4960 4961
-}
 
 top_end_area = { #4 (Tiwi and stuff)
 	2728 4846 4942 4954
+}
+
+sunraysia = {
+	4958 4959 4960 4961
 }
 
 arnhem_area = {
@@ -1792,6 +1785,35 @@ daring_downs_area = { #4
 tableland_area = {
 	4965 4966 4967 4968
 }
+
+southern_australia_area = { #4 (Melbourne/Victoria)
+	1087 4975 4976 4977 4978
+}
+
+gippsland_area = {
+	2734 4982 4981
+}
+
+wiradjuri_area = {
+	1089 4861 4979
+}
+
+murray_river_area = {
+	4984 4993 4992 4980 1088
+}
+
+princeland_area = { #4
+	4990 4988 4991 2735 4989
+}
+
+wimmera_area = {
+	4983 4986 4985 4987
+}
+
+adelaide_area = {
+	1086 2736 4862 4957
+}
+
 ########################################
 # West Africa					       #
 ########################################

@@ -1,0 +1,18 @@
+#4978 - Djadjawurrung
+
+add_core = DJB
+owner = DJB
+controller = DJB
+culture = kulin
+religion = dreamtime
+capital = "Wadawurrung"
+hre = no
+is_city = yes
+trade_goods = gold
+base_manpower = 1
+base_tax = 1
+base_production = 1
+native_size = 50
+native_ferocity = 2
+native_hostileness = 9
+discovered_by = aboriginal_tech

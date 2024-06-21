@@ -868,6 +868,11 @@ australia_region = {
 		sunraysia
 		nullarbor_area
 		outback_area
+		wiradjuri_area
+		gippsland_area
+		princeland_area
+		wimmera_area
+		adelaide_area
 	}
 	monsoon = {
 		00.10.01

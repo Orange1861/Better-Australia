@@ -1,0 +1,18 @@
+#4992 - Ngooraialum
+
+add_core = NGO
+owner = NGO
+controller = NGO
+culture = kulin
+religion = dreamtime
+capital = "Ngooraialum"
+hre = no
+is_city = yes
+trade_goods = unknown
+base_manpower = 1
+base_tax = 1
+base_production = 1
+native_size = 50
+native_ferocity = 1
+native_hostileness = 9
+discovered_by = aboriginal_tech

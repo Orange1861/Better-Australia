@@ -1,0 +1,19 @@
+#4975 - Boonwurrung
+
+add_core = BOO
+owner = BOO
+controller = BOO
+culture = kulin
+religion = dreamtime
+capital = "Boonwurrung"
+hre = no
+is_city = yes
+trade_goods = fish
+base_manpower = 2
+base_tax = 2
+base_production = 1
+native_size = 30
+native_ferocity = 1
+native_hostileness = 9
+center_of_trade = 1
+discovered_by = aboriginal_tech
