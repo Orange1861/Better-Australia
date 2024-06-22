@@ -1,4 +1,4 @@
-﻿l_english:
+l_english:
  HEADER_DECISIONS:0 "Decisions"
  state_firearm_regiments_title:0 "State Firearm Regiments"
  state_firearm_regiments_desc:0 "While the technology is still in its infancy, firearms can be a deadly force on any battlefield. In order to be efficient, however, firearms require regular training and a steady supply of ammunition. For a regular levy army this level of proficiency can be hard to maintain. A soldier that has to go home to tend his fields is not one that will regularly exercise with his weapon.\nWhile we cannot change our entire army structure in one stroke we can ensure that a core of highly trained salaried troops specialize in these weapons."
@@ -39,3 +39,17 @@
  core_1995_AP_title:0 "Core Micronesia"
  core_1996_AP_title:0 "Core Palau"
  core_1235_AP_title:0 "Core Guam"
+ victoria_nation_title:0 "Form Victoria"
+ victoria_nation_desc:0 "placeholder"
+ newsouthwales_nation_title:0 "Form New South Wales"
+ newsouhtwales_nation_desc:0 "placeholder"
+ tasmania_nation_title:0 "Form Tasmania"
+ tasmania_nation_desc:0 "placeholder"
+ queensland_nation_title:0 "Form Queensland"
+ queensland_nation_desc:0 "placeholder"
+ northaustralia_nation_title:0 "Form Northern Australia"
+ northaustralia_nation_desc:0 "placeholder"
+ southaustralia_nation_title:0 "Form South Australia"
+ southaustralia_nation_desc:0 "placeholder"
+ westaustralia_nation_title:0 "Form Western Australia"
+ westaustralia_nation_desc:0 "placeholder"
