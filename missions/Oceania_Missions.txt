@@ -1,4 +1,4 @@
-australia_missions_modernization_tag = {
+ australia_missions_modernization_tag = {
 	slot = 3
 	generic = no
 	ai = no
@@ -461,6 +461,7 @@ aboriginal_feudalism = {
 				duration = -1
 				}
 			}
+		custom_tooltip = gain_lose_feudalism_on_war_end
 		}
 	}
 aboriginal_feudalism_2 = {
@@ -768,7 +769,7 @@ australia_missions_slot4 = {
 	}
 	australia_colonize = {
 		icon = mission_invade_island
-		position = 7
+		position = 6
 		required_missions = { australia_unite_home_region }
 		trigger = {
 			is_tribal = no
@@ -781,6 +782,30 @@ australia_missions_slot4 = {
 			add_country_modifier = {
 				name = "colonize_the_continent"
 				duration = -1
+			}
+		}
+	}
+australia_set_up_port_moresby = {
+	icon = mission_early_game_buildings
+	position = 7
+	required_missions = { australia_colonize }
+	provinces_to_highlight = {
+		province_id = 1237
+		province_id = 2721
+		province_id = 2722
+		}
+	trigger = {
+		owns = 1237
+		owns = 2721
+		owns = 2722
+		}
+	effect = {
+		1237 = {
+			center_of_trade = 1
+			add_province_modifier = {
+				name = port_moresby
+				duration = -1
+				}
 			}
 		}
 	}
@@ -822,180 +847,309 @@ australia_oceanic_influence = {
 
 australia_missions_slot5 = {
 	slot = 5
-	generic = yes
+	generic = no
 	ai = yes
 	potential = {
 			technology_group = aboriginal_tech
 	}
-	australia_build_army_mission = {
-		icon = mission_oceania_build_army_mission
-		position = 1
-		required_missions = { }
-		trigger = {
-			army_size_percentage = 1
-		}
-		effect = { 
-			add_country_modifier = {
-				name = "thriving_arms_industry"
-				duration = 9125 #25 years
-			}
-			custom_tooltip = claim_neighbor_province
-			hidden_effect = {
-				every_owned_province = {
-					every_neighbor_province = {
-						limit = {
-							NOT = { owned_by = ROOT }
-							NOT = { is_permanent_claim = ROOT	}
-							NOT = { is_core = ROOT	}
-						}
-						add_claim = ROOT
-					}
-				}
-			}
+australia_secure_north = {
+	icon = mission_control_unrest
+	position = 1
+	required_missions = { }
+	provinces_to_highlight = {
+		OR = {
+			area = top_end_area
+			area = arnhem_area
+			area = north_queensland_area
+			area = outback_area
+			province_id = 4951
+			province_id = 4952
 		}
 	}
-	australia_assemble_an_army = {
-		icon = mission_oceania_assemble_an_army
-		position = 2
-		required_missions = { australia_build_army_mission }
-		trigger = { 
-			army_size = 80 
-		}
-		effect = {
-			add_country_modifier = {
-				name = "army_enthusiasm"
-				duration = 9125 #25 years
-			}
-			custom_tooltip = perma_claim_home_region
-			hidden_effect = {
-				capital_scope = {
-					every_province = {
-						limit = {
-							region = PREV
-							NOT = { owned_by = ROOT }
-							NOT = { is_core = ROOT }
-						}
-						add_permanent_claim = ROOT
-					}
-				}
-			}
-		}
-	}
-	australia_remove_euro = {
-		icon = mission_oceania_build_army_mission
-		position = 3
-		required_missions = { australia_assemble_an_army }
-		trigger = {
-			is_tribal = no
-			has_institution = feudalism
-			custom_trigger_tooltip = {
-				tooltip = new_world_remove_euro_toolip
-				capital_scope = {
-					region_for_scope_province = {
-						type = all
-						NOT = {
-							owner = {
-								technology_group = western
-							}
-						}
-					}
-				}
-			}
-		}
-		effect = {
-			add_mil_power = 200
-			add_country_modifier = {
-				name = "military_victory"
-				duration = 7300
-			}
-			custom_tooltip = perma_claim_neighbor_area
-			hidden_effect = {
-				every_owned_province = {
-					every_neighbor_province = {
-						area = {
-							limit = {
-								NOT = { owned_by = ROOT }
-								NOT = { is_permanent_claim = ROOT    }
-								NOT = { is_core = ROOT    }
-							}
-							add_permanent_claim = ROOT
-						}
-					}
-				}
-			}
-		}
-	}
-	australia_sunset_invasion = {
-		icon = mission_oceania_assemble_an_army
-		position = 4
-		required_missions = { australia_remove_euro }
-		trigger = {
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 5
-				continent = europe
-			}
-		}
-		effect = {
-			add_adm_power = 100
-			add_dip_power = 100
-			add_mil_power = 100
-			custom_tooltip = perma_claim_neighbor_area
-			hidden_effect = {
-				every_owned_province = {
-					every_neighbor_province = {
-						area = {
-							limit = {
-								NOT = { owned_by = ROOT }
-								NOT = { is_permanent_claim = ROOT    }
-								NOT = { is_core = ROOT    }
-							}
-							add_permanent_claim = ROOT
-						}
-					}
-				}
-			}
-		}
-	}
-	australia_control_unrest = {
-		icon = mission_oceania_dev_capital
-		position = 5
-		required_missions = { australia_unite_home_area }
-		provinces_to_highlight = {
-			owned_by = ROOT
-			unrest = 2
-		}
-		trigger = {
+	trigger = {
+		top_end_area = {
+			type = all
 			NOT = {
-				any_owned_province = {
-					unrest = 2
+				owner = {
+					NOT = {
+						tag = ROOT
+					}
 				}
 			}
 		}
-		effect = {
-			add_stability = 1
-		}
-	}
-	build_temples_australia = {
-		icon = mission_hands_praying
-		position = 6
-		required_missions = { australia_control_unrest }
-		trigger = {
-			OR = {
-				temple = 5
-				AND = {
-					native_ceremonial_fire_pit = 1
-					native_sweat_lodge = 1
+		arnhem_area = {
+			type = all
+			NOT = {
+				owner = {
+					NOT = {
+						tag = ROOT
+					}
 				}
 			}
 		}
-		effect = {
-			add_country_modifier = {
-				name = "building_spree"
-				duration = 9125
+		north_queensland_area = {
+			type = all
+			NOT = {
+				owner = {
+					NOT = {
+						tag = ROOT
+					}
+				}
+			}
+		}
+		4951 = {
+			NOT = {
+				owner = {
+					NOT = {
+						tag = ROOT
+					}
+				}
+			}
+		}
+		4952 = {
+			NOT = {
+				owner = {
+					NOT = {
+						tag = ROOT
+					}
+				}
 			}
 		}
 	}
-}
+	effect = {
+		custom_tooltip = explore_makassar_routes_tt
+		set_country_flag = aus_explore_north
+		}
+	}
+australia_secure_west = {
+	icon = mission_sw_yucca_plants
+	position = 2
+	required_missions = { }
+	provinces_to_highlight = {
+		OR = {
+			area = pilbara_area
+			area = western_australia_area
+			area = nullarbor_area
+			province_id = 4949
+			province_id = 4953
+		}
+	}
+	trigger = {
+		pilbara_area = {
+			type = all
+			NOT = {
+				owner = {
+					NOT = {
+						tag = ROOT
+					}
+				}
+			}
+		}
+		western_australia_area = {
+			type = all
+			NOT = {
+				owner = {
+					NOT = {
+						tag = ROOT
+					}
+				}
+			}
+		}
+		nullarbor_area = {
+			type = all
+			NOT = {
+				owner = {
+					NOT = {
+						tag = ROOT
+					}
+				}
+			}
+		}
+		4953 = {
+			NOT = {
+				owner = {
+					NOT = {
+						tag = ROOT
+					}
+				}
+			}
+		}
+		4949 = {
+			NOT = {
+				owner = {
+					NOT = {
+						tag = ROOT
+					}
+				}
+			}
+		}
+	}
+	effect = {
+		add_country_modifier = {
+			name = secured_west_aus
+			duration = 3650
+			}
+		}
+	}	
+australia_secure_south = {
+	icon = mission_ne_palisades
+	position = 3
+	required_missions = { }
+	provinces_to_highlight = {
+		OR = {
+			area = murray_river_area
+			area = southern_australia_area
+			area = illawara_area
+			area = tasmania_area
+			area = sunraysia
+		}
+	}
+	trigger = {
+		murray_river_area = {
+			type = all
+			NOT = {
+				owner = {
+					NOT = {
+						tag = ROOT
+					}
+				}
+			}
+		}
+		southern_australia_area = {
+			type = all
+			NOT = {
+				owner = {
+					NOT = {
+						tag = ROOT
+					}
+				}
+			}
+		}
+		illawara_area = {
+			type = all
+			NOT = {
+				owner = {
+					NOT = {
+						tag = ROOT
+					}
+				}
+			}
+		}
+		tasmania_area = {
+			type = all
+			NOT = {
+				owner = {
+					NOT = {
+						tag = ROOT
+					}
+				}
+			}
+		}
+		sunraysia = {
+			type = all
+			NOT = {
+				owner = {
+					NOT = {
+						tag = ROOT
+					}
+				}
+			}
+		}
+	}
+	effect = {
+		add_stability = 1
+		}	
+	}
+australia_secure_east = {
+	icon = mission_ne_great_lakes_conquest
+	position = 4
+	required_missions = { }
+	provinces_to_highlight = {
+		OR = {
+			area = south_queensland_area
+			area = eastern_australia_area
+			area = daring_downs_area
+			area = tableland_area
+			area = northern_australia_area
+		}
+	}
+	trigger = {
+		south_queensland_area = {
+			type = all
+			NOT = {
+				owner = {
+					NOT = {
+						tag = ROOT
+					}
+				}
+			}
+		}
+		eastern_australia_area = {
+			type = all
+			NOT = {
+				owner = {
+					NOT = {
+						tag = ROOT
+					}
+				}
+			}
+		}
+		daring_downs_area = {
+			type = all
+			NOT = {
+				owner = {
+					NOT = {
+						tag = ROOT
+					}
+				}
+			}
+		}
+		tableland_area = {
+			type = all
+			NOT = {
+				owner = {
+					NOT = {
+						tag = ROOT
+					}
+				}
+			}
+		}
+		northern_australia_area = {
+			type = all
+			NOT = {
+				owner = {
+					NOT = {
+						tag = ROOT
+					}
+				}
+			}
+		}
+	}
+	effect = {
+		custom_tooltip = explore_eastward_coast
+		set_country_flag = aus_explore_east
+		}	
+	}
+australia_claims_NZ = {
+	icon = mission_oceania_assemble_an_army
+	position = 5
+	required_missions = { australia_secure_east }
+	trigger = {
+		num_of_owned_provinces_with = {
+			value = 1
+			area = te_waipounamu_area
+			}
+		}
+	effect = {
+		te_ika_a_maui_hauauru_area = {
+				add_permanent_claim = ROOT
+				}
+		te_ika_a_maui_waho_area = {
+				add_permanent_claim = ROOT
+				}
+		}
+	}
+}		
 oceania_missions_modernization_tag = {
 	slot = 3
 	generic = no
