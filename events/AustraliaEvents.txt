@@ -282,6 +282,9 @@ country_event = {
 	trigger = {
 		has_country_flag = af_coalition
 	}
+	after = {
+		clr_country_flag = af_coalition
+	}
 	option = {
 		name = aboriginal_feudalism.4a
 		ai_chance = { factor = 100 }
@@ -349,9 +352,42 @@ country_event = {
 		ai_chance = { factor = 100 }
 	}
 }
+country_event = {
+	id = aboriginal_feudalism.6
+	title = aboriginal_feudalism.6t
+	desc = aboriginal_feudalism.6d
+	picture = CIVIL_WAR_eventPicture
 
+	hidden = yes
 
-
+	trigger = {
+		has_country_flag = defending_aboriginal_feudalism
+		is_in_war = {
+			defender_leader = ROOT
+			casus_belli = cb_super_badboy
+			}			
+		any_subject_country = {
+				is_subject_of = ROOT
+				liberty_desire = 50
+		}
+	}
+	immediate = {
+		every_country = {
+			limit = {
+				is_subject_of = ROOT
+				liberty_desire = 50
+				}
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+				}
+		}
+	}
+	option = {
+		name = aboriginal_feudalism.6a
+		ai_chance = { factor = 100 }
+	}
+}
 country_event = {
 	id = aboriginal_feudalism.7
 	title = aboriginal_feudalism.7t
@@ -359,7 +395,9 @@ country_event = {
 	picture = REFORM_eventPicture
 	
 	is_triggered_only = yes
-
+	after = {
+		clr_country_flag = aboriginal_feudalism
+	}
 	option = {
 		name = aboriginal_feudalism.7a1
 		ai_chance = { factor = 50 }
@@ -447,3 +485,327 @@ country_event = {
 		}
 	}
 }
+country_event = {
+	id = aboriginal_feudalism.11
+	title = aboriginal_feudalism.11t
+	desc = aboriginal_feudalism.11d
+	picture = INVENTION_eventPicture
+
+	mean_time_to_happen = { months = 60 }
+	
+	trigger = {
+		has_country_flag = aboriginal_feudalism
+		}
+	option = {
+		name = aboriginal_feudalism.11a
+		ai_chance = { factor = 100 }
+		random_owned_province = {
+			limit = { 
+				NOT = { current_institution = 50 }
+				}
+			add_province_modifier = {
+				name = random_af_bonus
+				duration = 1000
+				}
+		}
+	}
+}
+country_event = {
+	id = aboriginal_feudalism.12
+	title = aboriginal_feudalism.12t
+	desc = aboriginal_feudalism.12d
+	picture = INVENTION_eventPicture
+
+	hidden = yes
+
+	trigger = {
+		has_country_flag = aboriginal_feudalism
+		any_owned_province = {
+			OR = {
+				has_province_modifier = holds_1_vassal
+				has_province_modifier = holds_2_vassal
+				has_province_modifier = holds_3_or_more_vassal
+			}
+		}
+		NOT = { num_of_subjects = 1 }
+	}
+	immediate = {
+		every_owned_province = {
+			remove_province_modifier = holds_1_vassal
+			remove_province_modifier = holds_2_vassal
+			remove_province_modifier = holds_3_or_more_vassal
+			}
+	}
+	option = {
+		name = aboriginal_feudalism.12a
+		ai_chance = { factor = 100 }
+	}
+}
+country_event = {
+	id = aboriginal_feudalism.13
+	title = aboriginal_feudalism.13t
+	desc = aboriginal_feudalism.13d
+	picture = INVENTION_eventPicture
+
+	hidden = yes
+
+	trigger = {
+		has_country_flag = aboriginal_feudalism
+		num_of_subjects = 1
+		NOT = { num_of_subjects = 2 }
+	}
+	immediate = {
+		every_owned_province = {
+			remove_province_modifier = holds_1_vassal
+			remove_province_modifier = holds_2_vassal
+			remove_province_modifier = holds_3_or_more_vassal
+			}
+	}
+	after = {
+		every_owned_province = {
+			limit = {
+				NOT = { current_institution = 75 }
+			}
+			add_province_modifier = {
+				name = holds_1_vassal
+				duration = -1
+			}
+		}
+	}
+	option = {
+		name = aboriginal_feudalism.13a
+		ai_chance = { factor = 100 }
+	}
+}
+country_event = {
+	id = aboriginal_feudalism.14
+	title = aboriginal_feudalism.14t
+	desc = aboriginal_feudalism.14d
+	picture = INVENTION_eventPicture
+
+	hidden = yes
+
+	trigger = {
+		has_country_flag = aboriginal_feudalism
+		num_of_subjects = 2
+		NOT = { num_of_subjects = 3 }
+	}
+	immediate = {
+		every_owned_province = {
+			remove_province_modifier = holds_1_vassal
+			remove_province_modifier = holds_2_vassal
+			remove_province_modifier = holds_3_or_more_vassal
+			}
+	}
+	after = {
+		every_owned_province = {
+			limit = {
+				NOT = { current_institution = 75 }
+			}
+			add_province_modifier = {
+				name = holds_2_vassal
+				duration = -1
+			}
+		}
+	}
+	option = {
+		name = aboriginal_feudalism.14a
+		ai_chance = { factor = 100 }
+	}
+}
+country_event = {
+	id = aboriginal_feudalism.15
+	title = aboriginal_feudalism.15t
+	desc = aboriginal_feudalism.15d
+	picture = INVENTION_eventPicture
+
+	hidden = yes
+
+	trigger = {
+		has_country_flag = aboriginal_feudalism
+		num_of_subjects = 3
+	}
+	immediate = {
+		every_owned_province = {
+			remove_province_modifier = holds_1_vassal
+			remove_province_modifier = holds_2_vassal
+			remove_province_modifier = holds_3_or_more_vassal
+			}
+	}
+	after = {
+		every_owned_province = {
+			limit = {
+				NOT = { current_institution = 75 }
+			}
+			add_province_modifier = {
+				name = holds_3_or_more_vassal
+				duration = -1
+			}
+		}
+	}
+	option = {
+		name = aboriginal_feudalism.15a
+		ai_chance = { factor = 100 }
+	}
+}
+
+namespace = aus_region_events
+
+country_event = {
+	id = aus_region_events.1
+	title = aus_region_events.1t
+	desc = aus_region_events.1d
+	picture = SHIP_SAILING_eventPicture
+	
+	hidden = yes
+	mean_time_to_happen = {
+		months = 5
+		}
+
+	trigger = {
+		has_country_flag = aus_explore_north
+		}
+	after = {
+		clr_country_flag = aus_explore_north
+		}
+	option = {
+		name = aus_region_events.1a
+		ai_chance = { factor = 100 }
+		set_country_flag = knows_other_countries
+		1401 = {
+			discover_country = ROOT
+			}
+		1357 = {
+			discover_country = ROOT
+			}
+		2716 = {
+			discover_country = ROOT
+			}
+		4798 = {
+			discover_country = ROOT
+			}
+		4795 = {
+			discover_country = ROOT
+			}
+		641 = {
+			discover_country = ROOT
+			}
+	}
+}
+country_event = {
+	id = aus_region_events.2
+	title = aus_region_events.2t
+	desc = aus_region_events.2d
+	picture = SHIP_SAILING_eventPicture
+	
+	hidden = yes
+	mean_time_to_happen = {
+		months = 5
+		}
+
+	trigger = {
+		has_country_flag = aus_explore_east
+		}
+	after = {
+		clr_country_flag = aus_explore_east
+		}
+	option = {
+		name = aus_region_events.1a
+		ai_chance = { factor = 100 }
+		1429 = {
+			discover_country = ROOT
+			}
+		1986 = {
+			discover_country = ROOT
+			}
+		1423 = {
+			discover_country = ROOT
+			}
+		1246 = {
+			discover_country = ROOT
+			}
+		country_event = {
+			id = aus_region_events.3
+			days = 7
+			}
+	}
+}
+country_event = {
+	id = aus_region_events.3
+	title = aus_region_events.3t
+	desc = aus_region_events.3d
+	picture = EXPLORERS_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = aus_region_events.3a
+		ai_chance = { factor = 100 }
+		create_conquistador = { tradition = 10 }
+		1986 = {
+			add_permanent_claim = ROOT
+			}
+		te_waipounamu_area = {
+			add_permanent_claim = ROOT
+			}
+		}
+}
+country_event = {
+	id = aus_region_events.4
+	title = aus_region_events.4t
+	desc = aus_region_events.4d
+	picture = FARMING_eventPicture
+
+	trigger = {
+		num_of_owned_provinces_with = {
+			value = 10
+			region = australia_region
+			development = 8
+		}
+	}
+	option = {
+		name = aus_region_events.4a
+		ai_chance = { factor = 100 }
+		country_event = {
+			id = aus_region_events.4
+			days = 5475
+			}
+	}
+}
+country_event = {
+	id = aus_region_events.5
+	title = aus_region_events.5t
+	desc = aus_region_events.5d
+	picture = COLONIZATION_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = aus_region_events.5a
+		ai_chance = { factor = 100 }
+		remove_country_modifier = low_aboriginal_population
+	}
+}
+country_event = {
+	id = aus_region_events.6
+	title = aus_region_events.6t
+	desc = aus_region_events.6d
+	picture = DIPLOMACY_eventPicture
+
+	mean_time_to_happen = {
+		months = 120
+		}
+	
+	trigger = {
+		has_country_flag = knows_other_countries
+	}
+	after = {
+		clr_country_flag = knows_other_countries
+		}
+	option = {
+		name = aus_region_events.6a
+		ai_chance = { factor = 100 }
+		remove_country_modifier = isolated_aboriginal_development
+	}
+}
+					
