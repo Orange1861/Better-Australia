@@ -724,4 +724,812 @@ country_decisions = {
 			add_adm_power = -50
 			}
 	}
+	victoria_nation = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = changed_from_colonial_nation }
+			was_never_end_game_tag_trigger = yes
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = AUS }
+			OR = {
+				is_former_colonial_nation = yes
+				is_colonial_nation = yes
+				AND = {
+					NOT = {
+						OR = {
+							technology_group = north_american
+							technology_group = mesoamerican
+							technology_group = andean
+							technology_group = high_american
+							technology_group = south_american
+							technology_group = polynesian_tech
+						}
+					}
+				capital_scope = {
+					OR = {
+						province_id = 1087
+						province_id = 1088
+						province_id = 2734
+						province_id = 2735
+					}
+					is_core = ROOT
+					}
+				}
+			}
+			colonial_australia = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1087
+				province_id = 1088
+				province_id = 2734
+				province_id = 2735
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			capital_scope = {
+				OR = {
+					province_id = 1087
+					province_id = 1088
+					province_id = 2734
+					province_id = 2735
+				}
+			is_core = ROOT
+			}
+			owns_core_province = 1087
+			owns_core_province = 1088
+			owns_core_province = 2734
+			owns_core_province = 2735
+			NOT = { exists = VIK }
+		}
+		effect = {
+			hidden_effect = {
+				if = {
+					limit = { 
+						NOT = { is_former_colonial_nation = yes }
+					}
+					ROOT = { save_event_target_as = old_tag_target }
+					set_country_flag = was_not_former_colonial_nation
+				}
+			}
+			change_tag = VIK
+			if = {
+				limit = {
+					NOT = { is_former_colonial_nation = yes }
+				}
+				restore_old_nation_on_formation_effect = yes
+				remove_non_electors_emperors_from_empire_effect = yes
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			if = {
+				limit = {
+					has_reform = elective_monarchy
+				}
+				change_government = monarchy
+				add_government_reform = feudalism_reform
+			}
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	newsouthwales_nation = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = changed_from_colonial_nation }
+			was_never_end_game_tag_trigger = yes
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = AUS }
+			OR = {
+				is_former_colonial_nation = yes
+				is_colonial_nation = yes
+				AND = {
+					NOT = {
+						OR = {
+							technology_group = north_american
+							technology_group = mesoamerican
+							technology_group = andean
+							technology_group = high_american
+							technology_group = south_american
+							technology_group = polynesian_tech
+						}
+					}
+				capital_scope = {
+					OR = {
+						province_id = 1089
+						province_id = 4861
+						area = sunraysia
+						area = illawara_area
+						area = eastern_australia_area
+					}
+					is_core = ROOT
+					}
+				}
+			}
+			colonial_australia = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1089
+				province_id = 4861
+				area = sunraysia
+				area = illawara_area
+				area = eastern_australia_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			capital_scope = {
+				OR = {
+					province_id = 1089
+					province_id = 4861
+					area = sunraysia
+					area = illawara_area
+					area = eastern_australia_area
+				}
+			is_core = ROOT
+			}
+			num_of_owned_provinces_with = {
+				value = 12
+				OR = {
+					province_id = 1089
+					province_id = 4861
+					area = sunraysia
+					area = illawara_area
+					area = eastern_australia_area
+				}
+				is_city = yes
+			}
+			NOT = { exists = NSW }
+		}
+		effect = {
+			hidden_effect = {
+				if = {
+					limit = { 
+						NOT = { is_former_colonial_nation = yes }
+					}
+					ROOT = { save_event_target_as = old_tag_target }
+					set_country_flag = was_not_former_colonial_nation
+				}
+			}
+			change_tag = NSW
+			if = {
+				limit = {
+					NOT = { is_former_colonial_nation = yes }
+				}
+				restore_old_nation_on_formation_effect = yes
+				remove_non_electors_emperors_from_empire_effect = yes
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			if = {
+				limit = {
+					has_reform = elective_monarchy
+				}
+				change_government = monarchy
+				add_government_reform = feudalism_reform
+			}
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	tasmania_nation = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = changed_from_colonial_nation }
+			was_never_end_game_tag_trigger = yes
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = AUS }
+			OR = {
+				is_former_colonial_nation = yes
+				is_colonial_nation = yes
+				AND = {
+					NOT = {
+						OR = {
+							technology_group = north_american
+							technology_group = mesoamerican
+							technology_group = andean
+							technology_group = high_american
+							technology_group = south_american
+							technology_group = polynesian_tech
+						}
+					}
+				capital_scope = {
+					OR = {
+						province_id = 4869
+						province_id = 4868
+						province_id = 4972
+						province_id = 1085
+					}
+					is_core = ROOT
+					}
+				}
+			}
+			colonial_australia = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4869
+				province_id = 4868
+				province_id = 4972
+				province_id = 1085
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			capital_scope = {
+				OR = {
+					province_id = 4869
+					province_id = 4868
+					province_id = 4972
+					province_id = 1085
+				}
+			is_core = ROOT
+			}
+			owns_core_province = 4869
+			owns_core_province = 4868
+			owns_core_province = 4972
+			owns_core_province = 1085
+			NOT = { exists = TAS }
+		}
+		effect = {
+			hidden_effect = {
+				if = {
+					limit = { 
+						NOT = { is_former_colonial_nation = yes }
+					}
+					ROOT = { save_event_target_as = old_tag_target }
+					set_country_flag = was_not_former_colonial_nation
+				}
+			}
+			change_tag = TAS
+			if = {
+				limit = {
+					NOT = { is_former_colonial_nation = yes }
+				}
+				restore_old_nation_on_formation_effect = yes
+				remove_non_electors_emperors_from_empire_effect = yes
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			if = {
+				limit = {
+					has_reform = elective_monarchy
+				}
+				change_government = monarchy
+				add_government_reform = feudalism_reform
+			}
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	queensland_nation = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = changed_from_colonial_nation }
+			was_never_end_game_tag_trigger = yes
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = AUS }
+			OR = {
+				is_former_colonial_nation = yes
+				is_colonial_nation = yes
+				AND = {
+					NOT = {
+						OR = {
+							technology_group = north_american
+							technology_group = mesoamerican
+							technology_group = andean
+							technology_group = high_american
+							technology_group = south_american
+							technology_group = polynesian_tech
+						}
+					}
+				capital_scope = {
+					OR = {
+						area = south_queensland_area
+						area = daring_downs_area
+						area = tableland_area
+						area = northern_australia_area
+						area = north_queensland_area
+					}
+					is_core = ROOT
+					}
+				}
+			}
+			colonial_australia = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = south_queensland_area
+				area = daring_downs_area
+				area = tableland_area
+				area = northern_australia_area
+				area = north_queensland_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			capital_scope = {
+				OR = {
+					area = south_queensland_area
+					area = daring_downs_area
+					area = tableland_area
+					area = northern_australia_area
+					area = north_queensland_area
+				}
+			is_core = ROOT
+			}
+			num_of_owned_provinces_with = {
+				value = 18
+				OR = {
+					area = south_queensland_area
+					area = daring_downs_area
+					area = tableland_area
+					area = northern_australia_area
+					area = north_queensland_area
+				}
+				is_city = yes
+			}
+			NOT = { exists = QEN }
+		}
+		effect = {
+			hidden_effect = {
+				if = {
+					limit = { 
+						NOT = { is_former_colonial_nation = yes }
+					}
+					ROOT = { save_event_target_as = old_tag_target }
+					set_country_flag = was_not_former_colonial_nation
+				}
+			}
+			change_tag = QEN
+			if = {
+				limit = {
+					NOT = { is_former_colonial_nation = yes }
+				}
+				restore_old_nation_on_formation_effect = yes
+				remove_non_electors_emperors_from_empire_effect = yes
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			if = {
+				limit = {
+					has_reform = elective_monarchy
+				}
+				change_government = monarchy
+				add_government_reform = feudalism_reform
+			}
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	northaustralia_nation = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = changed_from_colonial_nation }
+			was_never_end_game_tag_trigger = yes
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = AUS }
+			OR = {
+				is_former_colonial_nation = yes
+				is_colonial_nation = yes
+				AND = {
+					NOT = {
+						OR = {
+							technology_group = north_american
+							technology_group = mesoamerican
+							technology_group = andean
+							technology_group = high_american
+							technology_group = south_american
+							technology_group = polynesian_tech
+						}
+					}
+				capital_scope = {
+					OR = {
+						province_id = 4951
+						province_id = 4952
+						area = top_end_area
+						area = arnhem_area
+					}
+					is_core = ROOT
+					}
+				}
+			}
+			colonial_australia = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4951
+				province_id = 4952
+				area = top_end_area
+				area = arnhem_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			capital_scope = {
+				OR = {
+					province_id = 4951
+					province_id = 4952
+					area = top_end_area
+					area = arnhem_area
+				}
+			is_core = ROOT
+			}
+			num_of_owned_provinces_with = {
+				value = 9
+				is_core = ROOT
+				OR = {
+					province_id = 4951
+					province_id = 4952
+					area = top_end_area
+					area = arnhem_area
+				}
+				is_city = yes
+			}
+			NOT = { exists = NTA }
+		}
+		effect = {
+			hidden_effect = {
+				if = {
+					limit = { 
+						NOT = { is_former_colonial_nation = yes }
+					}
+					ROOT = { save_event_target_as = old_tag_target }
+					set_country_flag = was_not_former_colonial_nation
+				}
+			}
+			change_tag = NTA
+			if = {
+				limit = {
+					NOT = { is_former_colonial_nation = yes }
+				}
+				restore_old_nation_on_formation_effect = yes
+				remove_non_electors_emperors_from_empire_effect = yes
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			if = {
+				limit = {
+					has_reform = elective_monarchy
+				}
+				change_government = monarchy
+				add_government_reform = feudalism_reform
+			}
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	southaustralia_nation = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = changed_from_colonial_nation }
+			was_never_end_game_tag_trigger = yes
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = AUS }
+			OR = {
+				is_former_colonial_nation = yes
+				is_colonial_nation = yes
+				AND = {
+					NOT = {
+						OR = {
+							technology_group = north_american
+							technology_group = mesoamerican
+							technology_group = andean
+							technology_group = high_american
+							technology_group = south_american
+							technology_group = polynesian_tech
+						}
+					}
+				capital_scope = {
+					OR = {
+						province_id = 4953
+						province_id = 4949
+						province_id = 4950
+						province_id = 4948
+						area = murray_river_area
+					}
+					is_core = ROOT
+					}
+				}
+			}
+			colonial_australia = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4953
+				province_id = 4949
+				province_id = 4950
+				province_id = 4948
+				area = murray_river_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			capital_scope = {
+				OR = {
+					province_id = 4953
+					province_id = 4949
+					province_id = 4950
+					province_id = 4948
+					area = murray_river_area
+				}
+			is_core = ROOT
+			}
+			num_of_owned_provinces_with = {
+				value = 6
+				is_core = ROOT
+				OR = {
+					province_id = 4953
+					province_id = 4949
+					province_id = 4950
+					province_id = 4948
+					area = murray_river_area
+				}
+				is_city = yes
+			}
+			NOT = { exists = SAS }
+		}
+		effect = {
+			hidden_effect = {
+				if = {
+					limit = { 
+						NOT = { is_former_colonial_nation = yes }
+					}
+					ROOT = { save_event_target_as = old_tag_target }
+					set_country_flag = was_not_former_colonial_nation
+				}
+			}
+			change_tag = SAS
+			if = {
+				limit = {
+					NOT = { is_former_colonial_nation = yes }
+				}
+				restore_old_nation_on_formation_effect = yes
+				remove_non_electors_emperors_from_empire_effect = yes
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			if = {
+				limit = {
+					has_reform = elective_monarchy
+				}
+				change_government = monarchy
+				add_government_reform = feudalism_reform
+			}
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	westaustralia_nation = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = changed_from_colonial_nation }
+			was_never_end_game_tag_trigger = yes
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = AUS }
+			OR = {
+				is_former_colonial_nation = yes
+				is_colonial_nation = yes
+				AND = {
+					NOT = {
+						OR = {
+							technology_group = north_american
+							technology_group = mesoamerican
+							technology_group = andean
+							technology_group = high_american
+							technology_group = south_american
+							technology_group = polynesian_tech
+						}
+					}
+				capital_scope = {
+					OR = {
+						area = western_australia_area
+						area = pilbara_area
+						area = nullarbor_area
+					}
+					is_core = ROOT
+					}
+				}
+			}
+			colonial_australia = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = western_australia_area
+				area = pilbara_area
+				area = nullarbor_area
+				province_id = 4942
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			capital_scope = {
+				OR = {
+					area = western_australia_area
+					area = pilbara_area
+					area = nullarbor_area
+				}
+			is_core = ROOT
+			}
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+					area = western_australia_area
+					area = pilbara_area
+					area = nullarbor_area
+					province_id = 4942
+				}
+				is_city = yes
+			}
+			NOT = { exists = WTA }
+		}
+		effect = {
+			hidden_effect = {
+				if = {
+					limit = { 
+						NOT = { is_former_colonial_nation = yes }
+					}
+					ROOT = { save_event_target_as = old_tag_target }
+					set_country_flag = was_not_former_colonial_nation
+				}
+			}
+			change_tag = WTA
+			if = {
+				limit = {
+					NOT = { is_former_colonial_nation = yes }
+				}
+				restore_old_nation_on_formation_effect = yes
+				remove_non_electors_emperors_from_empire_effect = yes
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			if = {
+				limit = {
+					has_reform = elective_monarchy
+				}
+				change_government = monarchy
+				add_government_reform = feudalism_reform
+			}
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+
+
 }
