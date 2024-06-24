@@ -8,6 +8,21 @@ on_war_won = {
 			}
 		country_event = { id = aboriginal_feudalism.8}
 		}
+	if = {
+		limit = {
+			ROOT = {
+				has_country_flag = aboriginal_feudalism
+				NOT = { has_institution = feudalism }
+				}
+			}
+		every_core_province = {
+				limit = {
+					owned_by = ROOT
+					NOT = { current_institution = 75 }
+					}
+			add_next_institution_embracement = 2.5
+			}
+		}
 }
 on_war_lost = {
 	if = {
@@ -18,5 +33,19 @@ on_war_lost = {
 				}
 			}
 		country_event = { id = aboriginal_feudalism.9}
+		}
+	if = {
+		limit = {
+			ROOT = {
+				has_country_flag = aboriginal_feudalism
+				NOT = { has_institution = feudalism }
+				}
+			}
+		every_core_province = {
+				limit = {
+					owned_by = ROOT
+					}
+			add_next_institution_embracement = -10
+			}
 		}
 }
