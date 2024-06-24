@@ -22,3 +22,12 @@ Added new 'on_actions' for the 'Aboriginal Feudalism' mission line
 Added new country and province modifiers for the 'Aboriginal Feudalism' mission line
 Add new decisions for coring provinces in Polynesia
 Added new localisation for everything listed above
+
+Added New Events to finish the 'Aboriginal Feudalism' line
+Added New 'on_action' for 'Aboriginal Feudalism'
+Added New Missions and Events to rewards players for owning certain sections of the Region
+Added New Events to remove Aboriginal Debuffs when a condition is met
+Added localisations for all of the above
+
+Added Western Australia, Northern Australia, South Australia, Queensland, New South Wales, Victoria, and Tasmania formables
+Added all needed/associated country, country_tag, and country history files
