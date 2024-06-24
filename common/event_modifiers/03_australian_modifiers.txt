@@ -91,3 +91,23 @@ loser_of_abo_feudal_war = {
 dev_af = {
 	local_tax_modifier = 0.25
 }
+secured_west_aus = {
+	global_prosperity_growth = 0.1
+} 
+port_moresby = {
+	fort_level = 1
+	local_development_cost = -0.2
+}
+random_af_bonus = {
+	institution_growth = 1.25
+	local_tax_modifier = 0.2
+}
+holds_1_vassal = {
+	institution_growth = 0.625
+}
+holds_2_vassal = {
+	institution_growth = 1.25
+}
+holds_3_or_more_vassal = {
+	institution_growth = 1.875
+}
