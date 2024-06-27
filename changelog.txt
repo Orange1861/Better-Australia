@@ -6,7 +6,7 @@ Added 50 Australia provinces
 Moved development around to reflect Aboriginal development
 Added early negative game modifiers to reflect Aboriginal Australian challenges
 Added two Aboriginal cultures
-Added Uluru as a great project
+Added Uluru and Great Barrier Reef as great projects
 Tripled Aboriginal native count (10 -> 30)
 Split Australia into two nodes, western node goes to India and South Africa
 

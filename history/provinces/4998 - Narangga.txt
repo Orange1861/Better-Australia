@@ -1,0 +1,15 @@
+#4998 - Narangga
+
+culture = yura
+religion = dreamtime
+capital = "Narangga"
+hre = no
+is_city = no
+trade_goods = unknown
+base_manpower = 1
+base_tax = 1
+base_production = 1
+native_size = 40
+native_ferocity = 1
+native_hostileness = 9
+discovered_by = aboriginal_tech

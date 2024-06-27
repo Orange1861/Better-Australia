@@ -1,0 +1,15 @@
+#4999 - Kangaroo_island
+
+culture = yura
+religion = dreamtime
+capital = "Karta"
+hre = no
+is_city = no
+trade_goods = unknown
+base_manpower = 1
+base_tax = 1
+base_production = 1
+native_size = 0
+native_ferocity = 0
+native_hostileness = 0
+discovered_by = aboriginal_tech

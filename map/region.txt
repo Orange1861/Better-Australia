@@ -873,6 +873,8 @@ australia_region = {
 		princeland_area
 		wimmera_area
 		adelaide_area
+		eyre_area
+		forme_area
 	}
 	monsoon = {
 		00.10.01

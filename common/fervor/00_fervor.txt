@@ -58,6 +58,10 @@ fervor_war = {
 			is_at_war = no
 		}
 		modifier = {
+			factor = 0
+			religion = maori_faith 
+		}
+		modifier = {
 			factor = 10
 			is_at_war = yes
 		}		
