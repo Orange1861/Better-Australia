@@ -2,7 +2,7 @@
 
 graphical_culture = aboriginalgfx
 
-color = { 178  28 178 }
+color = { 173  28 178 }
 #revolutionary_colors = { 10 8 5 }
 
 historical_idea_groups = {

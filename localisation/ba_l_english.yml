@@ -133,8 +133,8 @@
  eyre_area:0 "Eyre"
  forme_area:0 "Forme"
  
- AND:0 "Adnyamathanha"
- AND_ADJ:0 "Adnyamathanhan"
+ ADN:0 "Adnyamathanha"
+ ADN_ADJ:0 "Adnyamathanhan"
  WIR:0 "Wiradjuri"
  WIR_ADJ:0 "Wiradjuri"
  NGI:0 "Ngiyampaa"

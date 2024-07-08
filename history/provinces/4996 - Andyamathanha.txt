@@ -2,12 +2,12 @@
 
 culture = yura
 religion = dreamtime
-capital = "Andyamathanha"
+capital = "Adnyamathanha"
 hre = no
 is_city = yes
-add_core = AND
-owner = AND
-controller = AND
+add_core = ADN
+owner = ADN
+controller = ADN
 trade_goods = unknown
 base_manpower = 1
 base_tax = 1

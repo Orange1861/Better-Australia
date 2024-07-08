@@ -13,3 +13,29 @@ aboriginal_native_band_reform = {
 		recover_army_morale_speed = 0.05
 	}
 }
+
+aboriginal_pre_kurlin_nation = {
+	icon = "tribal_council"
+	allow_normal_conversion = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	
+	potential = {
+		primary_culture = kulin
+	}
+	modifiers = {
+		tribal_development_growth = -0.01
+		land_forcelimit	= -1
+		add_tribal_land_cost = 2.0
+		diplomats = 1
+		diplomatic_upkeep = 2
+	}
+	conditional = {
+		allow = { has_dlc = "Conquest of Paradise" }
+		allow_migration = no
+		custom_attributes = {
+			enable_settled_mechanics = yes
+			enable_tribal_grazing = no
+		}
+	}
+}
