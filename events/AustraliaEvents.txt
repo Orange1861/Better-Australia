@@ -9,6 +9,7 @@ country_event = {
 	trigger = {
 		has_country_flag = wurundjeri_gold
 	}
+	fire_only_once = yes
 	mean_time_to_happen = { months = 240 }
 	option = {
 		name = "gold_rush_1"
@@ -34,6 +35,7 @@ country_event = {
 	trigger = {
 		has_country_flag = wurundjeri_gold_rush
 		}
+	fire_only_once = yes
 	mean_time_to_happen = { months = 300 }
 	after = { remove_province_modifier = aus_gold_rush }
 	option = {
@@ -61,6 +63,7 @@ country_event = {
 	trigger = {
 		has_country_flag = aus_gold_depleted
 		}
+	fire_only_once = yes
 	mean_time_to_happen = { months = 240 }
 	option = {
 		name = "gold_rush_3"
@@ -85,6 +88,7 @@ country_event = {
 
 	trigger = {
 		has_country_flag = aboriginal_feudalism_timer
+		NOT = { has_country_flag = stop_af }
 		}
 	mean_time_to_happen = { months = 12 }
 	option = {
@@ -93,6 +97,7 @@ country_event = {
 		set_country_flag = aboriginal_feudalism_timer2
 		clr_country_flag = aboriginal_feudal_timer
 		set_country_flag = afcw
+		set_country_flag = stop_af
 		add_country_modifier = {
 			name = aboriginal_feudalism_c
 			duration = -1
@@ -110,7 +115,7 @@ country_event = {
 		diplomatic_reputation = -10
 		NOT = { has_country_flag = cddone_af }
 		capital_scope = {
-			NOT = {	current_institution = 75 }
+			NOT = {	feudalism = 75 }
 			}
 		}
 	mean_time_to_happen = { months = 8 }
@@ -210,8 +215,6 @@ country_event = {
 	title = aboriginal_feudalism.3t
 	desc = aboriginal_feudalism.3d
 	picture = ANGRY_MOB_eventPicture
-
-	is_triggered_only = yes
 
 	trigger = {
 		NOT = { diplomatic_reputation = -10 }
@@ -463,11 +466,9 @@ country_event = {
 	desc = aboriginal_feudalism.10d
 	picture = INVENTION_eventPicture
 
-	is_triggered_only = yes
-
 	trigger = {
 		capital_scope = {
-			current_institution = 75
+			feudalism = 75
 			}
 		NOT = { has_institution = feudalism }
 	}
@@ -501,7 +502,7 @@ country_event = {
 		ai_chance = { factor = 100 }
 		random_owned_province = {
 			limit = { 
-				NOT = { current_institution = 50 }
+				NOT = { feudalism = 50 }
 				}
 			add_province_modifier = {
 				name = random_af_bonus
@@ -564,7 +565,7 @@ country_event = {
 	after = {
 		every_owned_province = {
 			limit = {
-				NOT = { current_institution = 75 }
+				NOT = { feudalism = 75 }
 			}
 			add_province_modifier = {
 				name = holds_1_vassal
@@ -600,7 +601,7 @@ country_event = {
 	after = {
 		every_owned_province = {
 			limit = {
-				NOT = { current_institution = 75 }
+				NOT = { feudalism = 75 }
 			}
 			add_province_modifier = {
 				name = holds_2_vassal
@@ -635,7 +636,7 @@ country_event = {
 	after = {
 		every_owned_province = {
 			limit = {
-				NOT = { current_institution = 75 }
+				NOT = { feudalism = 75 }
 			}
 			add_province_modifier = {
 				name = holds_3_or_more_vassal
@@ -648,7 +649,71 @@ country_event = {
 		ai_chance = { factor = 100 }
 	}
 }
+country_event = {
+	id = aboriginal_feudalism.16
+	title = aboriginal_feudalism.16t
+	desc = aboriginal_feudalism.16d
+	picture = GOOD_WITH_MONARCH_eventPicture
 
+	trigger = {
+		had_country_flag = {
+			flag = defending_aboriginal_feudalism
+			days = 35
+		}
+		NOT = { is_at_war = yes }
+	}
+
+	option = {
+		name = aboriginal_feudalism.16a
+		ai_chance = { factor = 100 }
+		complete_mission = aboriginal_feudalism_defence
+		clr_country_flag = defending_aboriginal_feudalism
+		}
+}
+country_event = {
+	id = aboriginal_feudalism.17
+	title = aboriginal_feudalism.17t
+	desc = aboriginal_feudalism.17d
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	hidden = yes
+	is_triggered_only = yes
+
+	option = {
+		name = aboriginal_feudalism.17a
+		ai_chance = { factor = 100 }
+		remove_country_modifier = aboriginal_feudalism_c
+		remove_country_modifier = aboriginal_feudalism_countdown
+		remove_country_modifier = afcd2
+		remove_country_modifier = afcd3
+		remove_country_modifier = afcd4
+		remove_country_modifier = afcd5
+		remove_country_modifier = afcd6
+		remove_country_modifier = afcd7
+		remove_country_modifier = afcd8
+		remove_country_modifier = afcd9
+	}
+}
+country_event ={
+	id = aboriginal_feudalism.18
+	title = aboriginal_feudalism.18t
+	desc = aboriginal_feudalism.18d
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	hidden = yes
+	is_triggered_only = yes
+
+	option = {
+		name = aboriginal_feudalism.18a
+		ai_chance = { factor = 100 }
+		clr_country_flag = aboriginal_feudalism
+		every_owned_province = {
+			remove_province_modifier = holds_1_vassal
+			remove_province_modifier = holds_2_vassal
+			remove_province_modifier = holds_3_or_more_vassal
+		}
+	}
+}			
 namespace = aus_region_events
 
 country_event = {
@@ -757,17 +822,20 @@ country_event = {
 	picture = FARMING_eventPicture
 
 	trigger = {
+		NOT = { has_country_flag = abo_pop_growth }
 		num_of_owned_provinces_with = {
 			value = 10
 			region = australia_region
 			development = 8
 		}
+		has_country_modifier = low_aboriginal_population
 	}
 	option = {
 		name = aus_region_events.4a
 		ai_chance = { factor = 100 }
+		set_country_flag = abo_pop_growth
 		country_event = {
-			id = aus_region_events.4
+			id = aus_region_events.5
 			days = 5475
 			}
 	}
@@ -798,6 +866,7 @@ country_event = {
 	
 	trigger = {
 		has_country_flag = knows_other_countries
+		has_country_modifier = isolated_aboriginal_development
 	}
 	after = {
 		clr_country_flag = knows_other_countries
@@ -808,4 +877,811 @@ country_event = {
 		remove_country_modifier = isolated_aboriginal_development
 	}
 }
-					
+country_event = {
+	id = aus_region_events.7
+	title = aus_region_events.7t
+	desc = aus_region_events.7d
+	picture = BATTLE_eventPicture
+
+	mean_time_to_happen = {
+		months = 180
+	}
+	
+	trigger = {
+		NOT = { has_institution = feudalism }
+		NOT = { has_country_flag = aboriginal_feudalism }
+		capital_scope = {
+			region = australia_region
+		}
+	}
+	option = {
+		name = aus_region_events.7a
+		ai_chance = { factor = 75 }
+		custom_tooltip = tribal_duel_yes_tt
+		hidden_effect = {
+			country_event = {
+				id = aus_region_events.8
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = aus_region_events.7b
+		ai_chance = { factor = 25 }
+		custom_tooltip = tribal_duel_no_tt
+		add_adm_power = -50
+		add_dip_power = -50
+		add_mil_power = -50
+	}
+}
+country_event = {
+	id = aus_region_events.8
+	title = aus_region_events.8t
+	desc = aus_region_events.8d
+	picture = BATTLE_eventPicture
+
+	hidden = yes
+	is_triggered_only = yes
+
+	option = {
+		name = aus_region_events.8a
+		ai_chance = { factor = 50 }
+		country_event = {
+			id = aus_region_events.9
+			days = 1
+		}
+	}
+	option = {
+		name = aus_region_events.8b
+		ai_chance = { factor = 50 }
+		country_event = {
+			id = aus_region_events.10
+			days = 1
+		}
+	}
+}
+country_event = {
+	id = aus_region_events.9
+	title = aus_region_events.9t
+	desc = aus_region_events.9d
+	picture = EP_MAORI_HAKA_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = aus_region_events.9a
+		ai_chance = { factor = 100 }
+		change_adm = 1
+		change_dip = 1
+		change_mil = 1
+	}
+}
+country_event = {
+	id = aus_region_events.10
+	title = aus_region_events.10t
+	desc = aus_region_events.10d
+	picture = EP_MANIHOLE_HELMET_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = aus_region_events.10a
+		ai_chance = { factor = 100 }
+		kill_ruler = yes
+		add_adm_power = 15
+		add_dip_power = 15
+		add_mil_power = 15
+	}
+}
+country_event = {
+	id = aus_region_events.11
+	title = aus_region_events.11t
+	desc = aus_region_events.11d
+	picture = MILITARY_CAMP_eventPicture
+
+	trigger = {
+		has_country_modifier = stone_age_warfare
+		has_institution = feudalism
+	}
+	option = {
+		name = aus_region_events.11a
+		ai_chance = { factor = 100 }
+		remove_country_modifier = stone_age_warfare
+	}
+}
+namespace = aus_find_resources
+
+country_event = {
+	id = aus_find_resources.1
+	title = aus_find_resources.1t
+	desc = aus_find_resources.1d
+	picture = TRADE_GOODS_METALS_AND_MINING_EQUIPENT_eventPicture
+	
+	mean_time_to_happen = {
+		months = 80
+	}
+	trigger = {
+		has_country_flag = in_search_of_new_resources
+		australia_region = {
+			NOT = { copper = 4 }
+		}
+	}
+	option = {
+		name = aus_find_resources.1a
+		ai_chance = { factor = 100 }
+			random_owned_province = {
+				limit = {
+					region = australia_region
+					NOT = { province_id = 1094 }
+					NOT = { province_id = 2728 }
+					NOT = { area = western_australia_area }
+					NOT = { area = pilbara_area }
+					NOT = { area = nullarbor_area }
+					NOT = { area = top_end_area }
+					NOT = { area = arnhem_area }
+					NOT = { area = northern_australia_area }
+					NOT = { area = tasmania_area }
+					NOT = { province_has_center_of_trade_of_level = 1 }
+					OR = {
+						trade_goods = fish
+						trade_goods = grain
+						trade_goods = livestock
+						trade_goods = wool
+						trade_goods = incense
+					}
+				}
+			change_trade_goods = copper
+			if = {
+				limit = {
+					THIS = { 
+						has_building = wharf
+					}
+				}
+				remove_building = wharf
+				add_building = weapons
+			}
+			if = {
+				limit = {
+					THIS = {
+						has_building = textile
+					}
+				}
+				remove_building = textile
+				add_building = weapons
+			}
+			if = {
+				limit = {
+					THIS = {
+						has_building = tradecompany
+					}
+				}
+				remove_building = tradecompany
+				add_building = weapons
+			}
+			if = {
+				limit = {
+					THIS = {
+						has_building = farm_estate
+					}
+				}
+				remove_building = farm_estate
+				add_building = weapons
+			}	
+		}
+	}
+}
+country_event = {
+	id = aus_find_resources.2
+	title = aus_find_resources.2t
+	desc = aus_find_resources.2d
+	picture = TRADE_GOODS_METALS_AND_MINING_EQUIPENT_eventPicture
+	
+	mean_time_to_happen = {
+		months = 60
+	}
+	trigger = {
+		has_country_flag = in_search_of_new_resources
+		australia_region = {
+			NOT = { gold = 8 }
+		}
+	}
+	option = {
+		name = aus_find_resources.2a
+		ai_chance = { factor = 100 }
+			random_owned_province = {
+				limit = {
+					region = australia_region
+					NOT = { province_id = 1094 }
+					NOT = { province_id = 2728 }
+					NOT = { province_has_center_of_trade_of_level = 1 }
+					OR = {
+						trade_goods = fish
+						trade_goods = grain
+						trade_goods = livestock
+						trade_goods = wool
+						trade_goods = incense
+					}
+				}
+			change_trade_goods = gold
+			if = {
+				limit = {
+					THIS = {
+						has_building = wharf
+					}
+				}
+				remove_building = wharf
+				ROOT = {
+					add_treasury = 400
+				}
+			}
+			if = {
+				limit = {
+					THIS = {
+						has_building = textile
+					}
+				}
+				remove_building = textile
+				ROOT = {
+					add_treasury = 400
+				}
+			}
+			if = {
+				limit = {
+					THIS = {
+						has_building = tradecompany
+					}
+				}
+				remove_building = tradecompany
+				ROOT = {
+					add_treasury = 400
+				}
+			}
+			if = {
+				limit = {
+					THIS = {
+						has_building = farm_estate
+					}
+				}
+				remove_building = farm_estate
+				ROOT = {
+					add_treasury = 400
+				}
+			}	
+		}
+	}
+}
+country_event = {
+	id = aus_find_resources.3
+	title = aus_find_resources.3t
+	desc = aus_find_resources.3d
+	picture = TRADE_GOODS_METALS_AND_MINING_EQUIPENT_eventPicture
+	
+	mean_time_to_happen = {
+		months = 60
+	}
+	trigger = {
+		has_country_flag = australian_iron
+		has_country_flag = in_search_of_new_resources
+		australia_region = {
+			NOT = { iron = 6 }
+		}
+	}	
+	option = {
+		goto = THIS
+		name = aus_find_resources.3a
+		ai_chance = { factor = 100 }
+			random_owned_province = {
+				limit = {
+					region = australia_region
+					NOT = { province_id = 1094 }
+					NOT = { province_id = 2728 }
+					NOT = { area = top_end_area }
+					NOT = { area = tableland_area }
+					NOT = { area = north_queensland_area }
+					NOT = { area = northern_australia_area }
+					NOT = { area = arnhem_area }
+					NOT = { area = sunraysia }
+					NOT = { area = tasmania_area }
+					NOT = { province_has_center_of_trade_of_level = 1 }
+					OR = {
+						trade_goods = fish
+						trade_goods = grain
+						trade_goods = livestock
+						trade_goods = wool
+						trade_goods = incense
+					}
+				}
+			change_trade_goods = iron
+			if = {
+				limit = {
+					THIS = {
+						has_building = wharf
+					}
+				}
+				remove_building = wharf
+				add_building = weapons
+			}
+			if = {
+				limit = {
+					THIS = {
+						has_building = textile
+					}
+				}
+				remove_building = textile
+				add_building = weapons
+			}
+			if = {
+				limit = {
+					THIS = {
+						has_building = tradecompany
+					}
+				}
+				remove_building = tradecompany
+				add_building = weapons
+			}
+			if = {
+				limit = {
+					THIS = {
+						has_building = farm_estate
+					}
+				}
+				remove_building = farm_estate
+				add_building = weapons
+			}	
+		}
+	}
+}
+country_event = {
+	id = aus_find_resources.4
+	title = aus_find_resources.4t
+	desc = aus_find_resources.4d
+	picture = TRADE_GOODS_METALS_AND_MINING_EQUIPENT_eventPicture
+
+	fire_only_once = yes
+	mean_time_to_happen = {
+		months = 4
+	}
+	
+	trigger = {
+		has_country_flag = australian_iron_knob
+	}
+	option = {
+		name = aus_find_resources.4a
+		ai_chance = { factor = 100 }
+		goto = 2736
+		2736 = {
+			add_province_modifier = {
+				name = iron_knob_quality
+				duration = -1
+			}
+		}
+	}
+}
+namespace = aboriginal_tribe_events
+
+country_event = {
+	id = aboriginal_tribe_events.1
+	title = aboriginal_tribe_events.1t
+	desc = aboriginal_tribe_events.1d
+	picture = VILLAGE_RAIDED_eventPicture
+
+	trigger = {
+		capital_scope = {
+			region = australia_region
+		}
+		NOT = { has_institution = feudalism }
+		NOT = { has_country_flag = aboriginal_feudalism }
+	}
+	is_triggered_only = yes
+	option = {
+		name = aboriginal_tribe_events.1a
+		ai_chance = { factor = 100 }
+		add_manpower = -2.5
+		add_mil_power = -10
+	}
+}
+country_event = {
+	id = aboriginal_tribe_events.2
+	title = aboriginal_tribe_events.2t
+	desc = aboriginal_tribe_events.2d
+	picture = VILLAGE_RAIDED_eventPicture
+
+	trigger = {
+		capital_scope = {
+			region = australia_region
+		}
+		NOT = { has_institution = feudalism }
+		NOT = { has_country_flag = aboriginal_feudalism }
+	}
+	is_triggered_only = yes
+	option = {
+		name = aboriginal_tribe_events.2a
+		ai_chance = { factor = 100 }
+		add_manpower = -2.5
+		add_dip_power = -10
+	}
+}
+country_event = {
+	id = aboriginal_tribe_events.3
+	title = aboriginal_tribe_events.3t
+	desc = aboriginal_tribe_events.3d
+	picture = VILLAGE_RAIDED_eventPicture
+
+	trigger = {
+		capital_scope = {
+			region = australia_region
+		}
+		NOT = { has_institution = feudalism }
+		NOT = { has_country_flag = aboriginal_feudalism }
+	}
+	is_triggered_only = yes
+	option = {
+		name = aboriginal_tribe_events.3a
+		ai_chance = { factor = 100 }
+		add_manpower = -2.5
+		add_adm_power = -10
+	}
+}
+country_event = {
+	id = aboriginal_tribe_events.4
+	title = aboriginal_tribe_events.4t
+	desc = aboriginal_tribe_events.4d
+	picture = VILLAGE_RAIDED_eventPicture
+
+	trigger = {
+		capital_scope = {
+			region = australia_region
+		}
+		NOT = { has_institution = feudalism }
+		NOT = { has_country_flag = aboriginal_feudalism }
+	}
+	is_triggered_only = yes
+	option = {
+		name = aboriginal_tribe_events.4a
+		ai_chance = { factor = 100 }
+		add_treasury = -6
+		add_mil_power = -10
+	}
+}
+country_event = {
+	id = aboriginal_tribe_events.5
+	title = aboriginal_tribe_events.5t
+	desc = aboriginal_tribe_events.5d
+	picture = VILLAGE_RAIDED_eventPicture
+
+	trigger = {
+		capital_scope = {
+			region = australia_region
+		}
+		NOT = { has_institution = feudalism }
+		NOT = { has_country_flag = aboriginal_feudalism }
+	}
+	is_triggered_only = yes
+	option = {
+		name = aboriginal_tribe_events.5a
+		ai_chance = { factor = 100 }
+		add_treasury = -6
+		add_dip_power = -10
+	}
+}
+country_event = {
+	id = aboriginal_tribe_events.6
+	title = aboriginal_tribe_events.6t
+	desc = aboriginal_tribe_events.6d
+	picture = VILLAGE_RAIDED_eventPicture
+
+	trigger = {
+		capital_scope = {
+			region = australia_region
+		}
+		NOT = { has_institution = feudalism }
+		NOT = { has_country_flag = aboriginal_feudalism }
+	}
+	is_triggered_only = yes
+	option = {
+		name = aboriginal_tribe_events.6a
+		ai_chance = { factor = 100 }
+		add_treasury = -6
+		add_adm_power = -10
+	}
+}
+country_event = {
+	id = aboriginal_tribe_events.7
+	title = aboriginal_tribe_events.7t
+	desc = aboriginal_tribe_events.7d
+	picture = NATIVES_eventPicture
+
+	trigger = {
+		capital_scope = {
+			region = australia_region
+		}
+		NOT = { has_institution = feudalism }
+		NOT = { has_country_flag = aboriginal_feudalism }
+	}
+	is_triggered_only = yes
+	option = {
+		name = aboriginal_tribe_events.7a
+		ai_chance = { factor = 100 }
+		add_manpower = 1.5
+		add_mil_power = 25
+	}
+}
+country_event = {
+	id = aboriginal_tribe_events.8
+	title = aboriginal_tribe_events.8t
+	desc = aboriginal_tribe_events.8d
+	picture = NATIVES_eventPicture
+
+	trigger = {
+		capital_scope = {
+			region = australia_region
+		}
+		NOT = { has_institution = feudalism }
+		NOT = { has_country_flag = aboriginal_feudalism }
+	}
+	is_triggered_only = yes
+	option = {
+		name = aboriginal_tribe_events.8a
+		ai_chance = { factor = 100 }
+		add_manpower = 1.5
+		add_dip_power = 25
+	}
+}
+country_event = {
+	id = aboriginal_tribe_events.9
+	title = aboriginal_tribe_events.9t
+	desc = aboriginal_tribe_events.9d
+	picture = NATIVES_eventPicture
+
+	trigger = {
+		capital_scope = {
+			region = australia_region
+		}
+		NOT = { has_institution = feudalism }
+		NOT = { has_country_flag = aboriginal_feudalism }
+	}
+	is_triggered_only = yes
+	option = {
+		name = aboriginal_tribe_events.9a
+		ai_chance = { factor = 100 }
+		add_manpower = 1.5
+		add_adm_power = 25
+	}
+}
+country_event = {
+	id = aboriginal_tribe_events.10
+	title = aboriginal_tribe_events.10t
+	desc = aboriginal_tribe_events.10d
+	picture = NATIVES_eventPicture
+
+	trigger = {
+		capital_scope = {
+			region = australia_region
+		}
+		NOT = { has_institution = feudalism }
+		NOT = { has_country_flag = aboriginal_feudalism }
+	}
+	is_triggered_only = yes
+	option = {
+		name = aboriginal_tribe_events.10a
+		ai_chance = { factor = 100 }
+		add_treasury = 6
+		add_mil_power = 25
+	}
+}
+country_event = {
+	id = aboriginal_tribe_events.11
+	title = aboriginal_tribe_events.11t
+	desc = aboriginal_tribe_events.11d
+	picture = NATIVES_eventPicture
+
+	trigger = {
+		capital_scope = {
+			region = australia_region
+		}
+		NOT = { has_institution = feudalism }
+		NOT = { has_country_flag = aboriginal_feudalism }
+	}
+	is_triggered_only = yes
+	option = {
+		name = aboriginal_tribe_events.11a
+		ai_chance = { factor = 100 }
+		add_treasury = 6
+		add_dip_power = 25
+	}
+}
+country_event = {
+	id = aboriginal_tribe_events.12
+	title = aboriginal_tribe_events.12t
+	desc = aboriginal_tribe_events.12d
+	picture = NATIVES_eventPicture
+
+	trigger = {
+		capital_scope = {
+			region = australia_region
+		}
+		NOT = { has_institution = feudalism }
+		NOT = { has_country_flag = aboriginal_feudalism }
+	}
+	is_triggered_only = yes
+	option = {
+		name = aboriginal_tribe_events.12a
+		ai_chance = { factor = 100 }
+		add_treasury = 6
+		add_adm_power = 25
+	}
+}
+country_event = {
+	id = aboriginal_tribe_events.13
+	title = aboriginal_tribe_events.13t
+	desc = aboriginal_tribe_events.13d
+	picture = VILLAGE_RAIDED_eventPicture
+
+	trigger = {
+		capital_scope = {
+			region = australia_region
+		}
+		NOT = { has_institution = feudalism }
+		NOT = { has_country_flag = aboriginal_feudalism }
+	}
+	is_triggered_only = yes
+	option = {
+		name = aboriginal_tribe_events.13a
+		ai_chance = { factor = 100 }
+		add_manpower = -0.5
+		add_mil_power = 25
+	}
+}
+country_event = {
+	id = aboriginal_tribe_events.14
+	title = aboriginal_tribe_events.14t
+	desc = aboriginal_tribe_events.14d
+	picture = VILLAGE_RAIDED_eventPicture
+
+	trigger = {
+		capital_scope = {
+			region = australia_region
+		}
+		NOT = { has_institution = feudalism }
+		NOT = { has_country_flag = aboriginal_feudalism }
+	}
+	is_triggered_only = yes
+	option = {
+		name = aboriginal_tribe_events.14a
+		ai_chance = { factor = 100 }
+		add_manpower = -0.5
+		add_dip_power = 25
+	}
+}
+country_event = {
+	id = aboriginal_tribe_events.15
+	title = aboriginal_tribe_events.15t
+	desc = aboriginal_tribe_events.15d
+	picture = VILLAGE_RAIDED_eventPicture
+
+	trigger = {
+		capital_scope = {
+			region = australia_region
+		}
+		NOT = { has_institution = feudalism }
+		NOT = { has_country_flag = aboriginal_feudalism }
+	}
+	is_triggered_only = yes
+	option = {
+		name = aboriginal_tribe_events.15a
+		ai_chance = { factor = 100 }
+		add_manpower = -0.5
+		add_adm_power = 25
+	}
+}
+country_event = {
+	id = aboriginal_tribe_events.16
+	title = aboriginal_tribe_events.16t
+	desc = aboriginal_tribe_events.16d
+	picture = VILLAGE_RAIDED_eventPicture
+
+	trigger = {
+		capital_scope = {
+			region = australia_region
+		}
+		NOT = { has_institution = feudalism }
+		NOT = { has_country_flag = aboriginal_feudalism }
+	}
+	is_triggered_only = yes
+	option = {
+		name = aboriginal_tribe_events.16a
+		ai_chance = { factor = 100 }
+		add_manpower = -1.25
+		add_adm_power = -25
+	}
+}
+country_event = {
+	id = aboriginal_tribe_events.17
+	title = aboriginal_tribe_events.17t
+	desc = aboriginal_tribe_events.17d
+	picture = VILLAGE_RAIDED_eventPicture
+
+	trigger = {
+		capital_scope = {
+			region = australia_region
+		}
+		NOT = { has_institution = feudalism }
+		NOT = { has_country_flag = aboriginal_feudalism }
+	}
+	is_triggered_only = yes
+	option = {
+		name = aboriginal_tribe_events.17a
+		ai_chance = { factor = 100 }
+		add_manpower = -1.25
+		add_dip_power = -25
+	}
+}
+country_event = {
+	id = aboriginal_tribe_events.18
+	title = aboriginal_tribe_events.18t
+	desc = aboriginal_tribe_events.18d
+	picture = VILLAGE_RAIDED_eventPicture
+
+	trigger = {
+		capital_scope = {
+			region = australia_region
+		}
+		NOT = { has_institution = feudalism }
+		NOT = { has_country_flag = aboriginal_feudalism }
+	}
+	is_triggered_only = yes
+	option = {
+		name = aboriginal_tribe_events.18a
+		ai_chance = { factor = 100 }
+		add_manpower = -1.25
+		add_mil_power = -25
+	}
+}
+country_event = {
+	id = aboriginal_tribe_events.19
+	title = aboriginal_tribe_events.19t
+	desc = aboriginal_tribe_events.19d
+	picture = NATIVES_eventPicture
+
+	trigger = {
+		capital_scope = {
+			region = australia_region
+		}
+		NOT = { has_institution = feudalism }
+		NOT = { has_country_flag = aboriginal_feudalism }
+	}
+	is_triggered_only = yes
+	option = {
+		name = aboriginal_tribe_events.19a
+		ai_chance = { factor = 100 }
+		add_manpower = 1.5
+		add_treasury = 10
+		add_mil_power = 10
+		add_dip_power = 10
+		add_adm_power = 10
+	}
+}
+country_event = {
+	id = aboriginal_tribe_events.20
+	title = aboriginal_tribe_events.20t
+	desc = aboriginal_tribe_events.20d
+	picture = NATIVES_eventPicture
+
+	trigger = {
+		capital_scope = {
+			region = australia_region
+		}
+		NOT = { has_institution = feudalism }
+		NOT = { has_country_flag = aboriginal_feudalism }
+	}
+	is_triggered_only = yes
+	option = {
+		name = aboriginal_tribe_events.20a
+		ai_chance = { factor = 100 }
+		add_manpower = -2.5
+		add_treasury = -10
+		add_mil_power = -25
+		add_dip_power = -25
+		add_adm_power = -25
+	}
+}
