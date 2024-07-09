@@ -31,3 +31,11 @@ Added localisations for all of the above
 
 Added Western Australia, Northern Australia, South Australia, Queensland, New South Wales, Victoria, and Tasmania formables
 Added all needed/associated country, country_tag, and country history files
+
+Removed missions that will end up in the Australian Mission Tree
+Added and modified missions in the Aboriginal Mission Tree
+Added new events for nearby tribal raids, leader duels, removing modifiers from the Aboriginal Feudalism mission line, finding new resources, and removing aboriginal debuff modifiers
+Added new decisions for finding iron
+Added tribal raid events into the on_actions - on_yearly_pulse
+Added new country and province modifiers
+Added localisations for evenything stated above
