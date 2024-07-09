@@ -125,7 +125,13 @@ country_decisions = {
 		provinces_to_highlight = { province_id = 1086 }
 		allow = { has_institution = feudalism }
 		effect = {
-			1086 = { change_trade_goods = copper }
+			1086 = { 
+				change_trade_goods = copper
+				add_province_modifier = {
+					name = copper_coast
+					duration = -1
+				}
+			}
 			set_country_flag = karuna_copper
 		}
 		ai_will_do = {
@@ -146,7 +152,7 @@ country_decisions = {
 			set_country_flag = wiradjuri_gold
 		}
 		ai_will_do = {
-			factor = 1
+			factor = 100
 		}
 		ai_importance = 500
 	}
@@ -154,12 +160,12 @@ country_decisions = {
 		color = { 147 112 219 }
 		potential = {
 			owns_core_province = 1087
-			has_institution = colonialism
+			has_institution = new_world_i
 			NOT = { has_country_flag = wurundjeri_gold }
 			}
 		provinces_to_highlight = { province_id = 1087 }
 		allow = {
-			has_institution = colonialism
+			has_institution = new_world_i
 			is_year = 1535
 			1087 = {
 				development = 20
@@ -170,7 +176,55 @@ country_decisions = {
 			set_country_flag = wurundjeri_gold
 		}
 		ai_will_do = {
-			factor = 1
+			factor = 100
+		}
+		ai_importance = 500
+	}
+	iron_mines_of_kurrama = {
+		color = { 147 112 219 }
+		potential = {
+			owns_core_province = 4865
+			has_institution = new_world_i
+			NOT = { has_country_flag = kurrama_iron }
+		}
+		provinces_to_highlight = { province_id = 4865 }
+		allow = {
+			has_institution = global_trade
+			4865 = {
+				development = 30
+				}
+		}
+		effect = {
+			4865 = { change_trade_goods = iron }
+			set_country_flag = australian_iron
+			custom_tooltip = australian_iron_tt
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		ai_importance = 500
+	}	
+	the_iron_knob_of_aus = {
+		color = { 147 112 219 }
+		potential = {
+			owns_core_province = 2736
+			has_institution = new_world_i
+			NOT = { has_country_flag = australia_iron_knob }
+		}
+		provinces_to_highlight = { province_id = 2736 }
+		allow = { 
+			has_institution = new_world_i
+			mission_completed = australia_in_search_of_resources
+			2736 = {
+				development = 20
+			}
+		}
+		effect = {
+			2736 = { change_trade_goods = iron }
+			set_country_flag = australia_iron_knob
+		}
+		ai_will_do = {
+			factor = 100
 		}
 		ai_importance = 500
 	}
