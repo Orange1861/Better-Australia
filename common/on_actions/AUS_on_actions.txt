@@ -49,3 +49,27 @@ on_war_lost = {
 			}
 		}
 }
+on_yearly_pulse_4 = {
+	random_events = {
+		100 = aboriginal_tribe_events.1
+		100 = aboriginal_tribe_events.2
+		100 = aboriginal_tribe_events.3
+		100 = aboriginal_tribe_events.4
+		100 = aboriginal_tribe_events.5
+		100 = aboriginal_tribe_events.6
+		100 = aboriginal_tribe_events.7
+		100 = aboriginal_tribe_events.8
+		100 = aboriginal_tribe_events.9
+		100 = aboriginal_tribe_events.10
+		100 = aboriginal_tribe_events.11
+		100 = aboriginal_tribe_events.12
+		100 = aboriginal_tribe_events.13
+		100 = aboriginal_tribe_events.14
+		100 = aboriginal_tribe_events.15
+		100 = aboriginal_tribe_events.16
+		100 = aboriginal_tribe_events.17
+		100 = aboriginal_tribe_events.18
+		100 = aboriginal_tribe_events.19
+		100 = aboriginal_tribe_events.20
+	}
+}
