@@ -17,6 +17,7 @@ develope_our_lands = {
 }
 harsh_exploration = {
 	global_colonial_growth = 5
+	may_explore = yes
 }
 sula_easy_colony = {
 	local_colonial_growth = 25 
@@ -110,4 +111,20 @@ holds_2_vassal = {
 }
 holds_3_or_more_vassal = {
 	institution_growth = 1.875
+}
+australian_frontier = {
+	may_establish_frontier = yes
+}
+aus_begin_construction = {
+	build_cost = -0.25
+}
+aus_mint_gold = {
+	gold_depletion_chance_modifier = -0.25
+	monthly_gold_inflation_modifier = -0.25
+}
+iron_knob_quality = {
+	trade_goods_size = 2
+}
+copper_coast = {
+	trade_goods_size = 1.25
 }
