@@ -24,8 +24,7 @@ aboriginal_pre_kurlin_nation = {
 		primary_culture = kulin
 	}
 	modifiers = {
-		tribal_development_growth = -0.01
-		land_forcelimit	= -1
+		land_forcelimit	= -1.5
 		add_tribal_land_cost = 2.0
 		diplomats = 1
 		diplomatic_upkeep = 2
