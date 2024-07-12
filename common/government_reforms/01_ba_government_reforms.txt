@@ -38,3 +38,28 @@ aboriginal_pre_kurlin_nation = {
 		}
 	}
 }
+
+aboriginal_kurlin_confederacy = {
+	icon = "tribal_council"
+	allow_normal_conversion = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	
+	potential = {
+		primary_culture = kulin
+	}
+	modifiers = {
+		diplomats = 1
+		diplomatic_upkeep = 2
+		diplomatic_reputation = 1
+		accept_vassalization_reasons = 15
+	}
+	conditional = {
+		allow = { has_dlc = "Conquest of Paradise" }
+		allow_migration = no
+		custom_attributes = {
+			enable_settled_mechanics = yes
+			enable_tribal_grazing = no
+		}
+	}
+}

@@ -14,6 +14,8 @@ aboriginal_native = {
 				native_clan_council_reform
 				native_hereditary_reform
 				aboriginal_native_band_reform
+				aboriginal_pre_kurlin_nation
+				aboriginal_kurlin_confederacy
 			}
 		}
 

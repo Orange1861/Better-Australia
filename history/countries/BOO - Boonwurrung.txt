@@ -1,4 +1,4 @@
-government = native
+government = aboriginal_native
 add_government_reform = aboriginal_pre_kurlin_nation
 government_rank = 1
 primary_culture = kulin
